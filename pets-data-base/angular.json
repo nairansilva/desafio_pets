@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pets-data-base": {
+    "gerenciador-de-tarefas": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/pets-data-base",
+            "outputPath": "dist/gerenciador-de-tarefas",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,7 +24,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
@@ -62,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "pets-data-base:build"
+            "browserTarget": "gerenciador-de-tarefas:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "pets-data-base:build:production"
+              "browserTarget": "gerenciador-de-tarefas:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "pets-data-base:build"
+            "browserTarget": "gerenciador-de-tarefas:build"
           }
         },
         "test": {
@@ -110,19 +111,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "pets-data-base:serve"
+            "devServerTarget": "gerenciador-de-tarefas:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "pets-data-base:serve:production"
+              "devServerTarget": "gerenciador-de-tarefas:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "pets-data-base",
+  "defaultProject": "gerenciador-de-tarefas",
   "cli": {
-    "analytics": "e81e5ee5-3a75-4fb7-b90c-eab3a63417d8"
+    "analytics": "5efc3545-1b4c-41bd-bdca-e718cf318409"
   }
 }

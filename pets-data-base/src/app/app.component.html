@@ -1,66 +1,18 @@
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item active" aria-current="page">Gerenciamento de donos</li>
-  </ol>
-</nav>
-<div class="container">
-  <div class="card list-dono">
-    <h5 class="card-header">Lista de donos</h5>
-    <div class="card-body">
-      <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Nome</th>
-              <th scope="col">E-Mail</th>
-              <th scope="col">Telefone</th>
-              <th scope="col">Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let dono of donos">
-              <td>{{dono.id}}</td>
-              <td>{{dono.nome}}</td>
-              <td>{{dono.email}}</td>
-              <td>{{dono.telefone}}</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" (click)="editDono(dono)">Editar</button>
-                <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteDono(dono)">Deletar</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-    </div>
-  </div>
-
-  <div class="card add-dono">
-      <h5 class="card-header">Adicionar/Atualizar dono</h5>
-      <div class="card-body">
-          <form id="add-form" (ngSubmit)="f.form.valid && saveDono(f)" #f="ngForm" novalidate>
-            <div class="form-group">
-                <label for="nome">Nome</label>
-                <input type="text" [(ngModel)]="dono.nome" id="nome" name="nome" #nome="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && nome.invalid }" placeholder="Digite o nome">
-                <div *ngIf="f.submitted && nome.invalid" class="invalid-feedback">
-                    <div *ngIf="nome.errors.required">Nome é obrigatório</div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="email">E-Mail</label>
-                <input type="text" [(ngModel)]="dono.email" id="email" name="email" #email="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" placeholder="Digite o email">
-                <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
-                    <div *ngIf="email.errors.required">E-Mail é obrigatório</div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="telefone">Telefone</label>
-                <input type="tel" [(ngModel)]="dono.telefone" id="telefone" name="telefone" #telefone="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && telefone.invalid }" placeholder="Digite o telefone">
-                <div *ngIf="f.submitted && telefone.invalid" class="invalid-feedback">
-                    <div *ngIf="telefone.errors.required">Telefone é obrigatório</div>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary btn-add-dono">Salvar</button>
-            <button type="reset" class="btn btn-secondary btn-add-dono" (click)="cleanForm(f)">Cancelar</button>
-          </form>
+<div class="container-fluid">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/tarefas">
+          Home
+        </a>
+        <a class="navbar-brand" href="/tarefas/donos">
+          Donos
+        </a>
+        <a class="navbar-brand" href="/tarefas/pets">
+          Pets
+        </a>
       </div>
     </div>
+  </nav>
+  <router-outlet></router-outlet>
 </div>

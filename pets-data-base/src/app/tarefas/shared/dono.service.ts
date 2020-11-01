@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
-import { Dono } from '../models/dono';
+import { Dono } from './dono.model';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +29,7 @@ export class DonoService {
   }
 
   // Obtem um dono pelo id
-  getCarById(id: number): Observable<Dono> {
+  getDonoById(id: number): Observable<Dono> {
     return this.httpClient.get<Dono>(this.url + '/' + id)
       .pipe(
         retry(2),
@@ -56,8 +56,8 @@ export class DonoService {
   }
 
   // deleta um dono
-  deleteDono(car: Dono) {
-    return this.httpClient.delete<Dono>(this.url + '/' + car.id, this.httpOptions)
+  deleteDono(dono: Dono) {
+    return this.httpClient.delete<Dono>(this.url + '/' + dono.id, this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.handleError)
