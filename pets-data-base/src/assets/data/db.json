@@ -27,6 +27,14 @@
       "raca": "Pug",
       "especie": "Canino",
       "id_dono": 1
+    },
+    {
+      "nome": "Pikachu",
+      "apelido": "Little Chu",
+      "raca": "Eletrico",
+      "especie": "Rato eletrico ",
+      "id_dono": 2,
+      "id": 2
     }
   ]
 }

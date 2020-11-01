@@ -4,7 +4,7 @@
     </ol>
   </nav>
   <div class="container">
-    <div class="card list-dono">
+    <div class="card list-pet">
       <h5 class="card-header">Lista de pets</h5>
       <div class="card-body">
         <table class="table">
@@ -25,13 +25,66 @@
                   <td>{{pet.apelido}}</td>
                   <td>{{pet.raca}}</td>
                   <td>{{pet.especie}}</td>
-                  <td>{{pet.dono}}</td>
+                  <td>{{pet.id_dono}}</td>
                   <td>
-                    <button type="button" class="btn btn-warning btn-sm" (click)="editDono(dono)">Editar</button>
-                    <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteDono(dono)">Deletar</button>
+                    <button type="button" class="btn btn-warning btn-sm" (click)="editPet(pet)">Editar</button>
+                    <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deletePet(pet)">Deletar</button>
                   </td>
                 </tr>
               </tbody>
           </table>
       </div>
     </div>
+
+
+
+
+    <div class="card add-pet">
+      <h5 class="card-header">Adicionar/Atualizar pet</h5>
+      <div class="card-body">
+          <form id="add-form" (ngSubmit)="f.form.valid && savePet(f)" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" [(ngModel)]="pet.nome" id="nome" name="nome" #nome="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && nome.invalid }" placeholder="Digite o nome">
+                <div *ngIf="f.submitted && nome.invalid" class="invalid-feedback">
+                    <div *ngIf="nome.errors.required">Nome é obrigatório</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="apelido">Apelido</label>
+                <input type="text" [(ngModel)]="pet.apelido" id="apedido" name="apedido" #apelido="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && apelido.invalid }" placeholder="Digite o apelido">
+                <div *ngIf="f.submitted && apelido.invalid" class="invalid-feedback">
+                    <div *ngIf="apelido.errors.required">Apelido é obrigatório</div>
+                </div>
+            </div>
+            <div class="form-group">
+              <label for="raca">Raça</label>
+              <input type="text" [(ngModel)]="pet.raca" id="raca" name="raca" #raca="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && raca.invalid }" placeholder="Digite a raça">
+              <div *ngIf="f.submitted && raca.invalid" class="invalid-feedback">
+                  <div *ngIf="raca.errors.required">Raça é obrigatório</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="especie">Especie</label>
+              <input type="text" [(ngModel)]="pet.especie" id="especie" name="especie" #especie="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && especie.invalid }" placeholder="Digite a especie">
+              <div *ngIf="f.submitted && especie.invalid" class="invalid-feedback">
+                  <div *ngIf="especie.errors.required">Especie é obrigatório</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+                <label for="id_dono">Id dono</label>
+                <input type="number" [(ngModel)]="pet.id_dono" id="id_dono" name="id_dono" #id_dono="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && id_dono.invalid }" placeholder="Digite o Id do dono">
+                <div *ngIf="f.submitted && id_dono.invalid" class="invalid-feedback">
+                    <div *ngIf="id_dono.errors.required">Id do dono é obrigatório</div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-add-pet">Salvar</button>
+            <button type="reset" class="btn btn-secondary btn-add-pet" (click)="cleanForm(f)">Cancelar</button>
+          </form>
+      </div>
+    </div>
+
+
+</div>
