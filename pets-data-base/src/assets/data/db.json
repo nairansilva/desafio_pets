@@ -1,0 +1,22 @@
+{
+  "donos": [
+    {
+      "nome": "Jessica Rodrigues",
+      "email": "jessica@gmail.com",
+      "telefone": 992788892,
+      "id": 1
+    },
+    {
+      "nome": "Luiz Nai",
+      "email": "luiz.neosnk@gmail.com",
+      "telefone": "29516171",
+      "id": 2
+    },
+    {
+      "telefone": "992788892",
+      "nome": "Rodrigo",
+      "email": "rodrigro@hotmail.com",
+      "id": 3
+    }
+  ]
+}
