@@ -1,40 +1,4 @@
 {
-  "donos": [
-    {
-      "nome": "Jessica Rodrigues",
-      "email": "jessica@gmail.com",
-      "telefone": "992788898",
-      "id": 1
-    },
-    {
-      "telefone": "992788892",
-      "nome": "Rodrigo",
-      "email": "rodrigro@hotmail.com",
-      "id": 3
-    },
-    {
-      "nome": "Katarina",
-      "email": "katarina@gmail.com",
-      "telefone": "9992788892",
-      "id": 4
-    }
-  ],
-  "pets": [
-    {
-      "id": 1,
-      "nome": "Bolota",
-      "apelido": "Bobo",
-      "raca": "Pug",
-      "especie": "Canino",
-      "id_dono": 1
-    },
-    {
-      "nome": "Pikachu",
-      "apelido": "Little Chu",
-      "raca": "Eletrico",
-      "especie": "Rato eletrico ",
-      "id_dono": 2,
-      "id": 2
-    }
-  ]
+  "donos": [],
+  "pets": []
 }

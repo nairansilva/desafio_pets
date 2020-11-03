@@ -1,4 +1,5 @@
 export interface Pet {
+    forEach(arg0: (element: any) => void);
     id: number;
     nome: string;
     apelido: string;
