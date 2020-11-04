@@ -1,107 +1,17 @@
-# Desafio Frontend Backoffice Protheus 2020
+# Pet Shop Data Base por Luiz Nai
 
-Olá! Seja bem vindo! Muito obrigado por querer fazer parte do nosso time! 
+- Após clonar o projeto, entre na pasta **pets-data-base** e execute o comando **npm i**;
+- Instale o Json Server para simular um banco de dados **npm install -g json-server**;
+- Rode o seguinte comando para rodar o banco de dados fake **json-server --watch src/assets/data/db.json**;
+- Abra um outro terminal e dentro da pasta **pets-data-base** rode o comando **ng serve --open**.
+- O projeto irá abrir em uma nova aba.
 
-Abaixo você encontrará as informações necessárias para realizar o desafio.
+## Notas sobre o projeto
 
-## Importante!
+- O projeto foi desenvolvido utilizando o Angular CLI 10.2.0, Bootstrap 3.4.1 e Json-Server para simular o back-end;
+- Há um sistema de rotas para simular a navegação entre três "páginas": Intro, cadastro de dono e cadastro de pets;
+- Só é possível cadastrar um pet, se houver pelo menos um dono cadastrado;
+- Se o usuário remover um dono, todos os pets desse dono também serão deletados;
+- Todos os campos são obrigatórios;
 
-- A entrega poderá ser realizada através de um Pull Request ou enviando o projeto zipado para nairan.asilva[a]gmail.com;
-- Não esqueça do arquivo README explicando como devemos rodar o seu projeto;
-- Você poderá consultar o Google, Stackoverflow ou algum projeto particular na sua máquina;
-- Não fique preso a entregar todo o desafio e sim entregar com a melhor qualidade no prazo estipulado; 
-- Fique à vontade para perguntar qualquer coisa =)!
-- Boa sorte!
-
-## Setup do projeto
-
-- Angular CLI: 8+
-- Node: 10+
-- Angular: 8+
-
-## Como submeter?
-
-- Commite suas alterações de forma organizada;
-- Um dia antes da entrevista será dada permissão para fazer o push/ abrir a pull request, abra uma pull request da sua branch para a master com a nomenclatura: Nome Sobrenome - dd-mm-yy
-
-_Obs: Caso não tenha recebido permissão para realizar o push da branch entre em contato com o recrutador e envie seu usuário do GitHub_
-
-## Objetivo
-
-O objetivo desenvolver um controle de Pets e Donos.
-
-## Telas
-
-### Pets
-
-- O sistema deverá apresentar todos os pets cadastrados. Os campos apresentados serão:
-	1. Nome;
-	2. Apelido;
-	3. Raça;
-	4. Especíe:
-	5. Nome do Dono;
-	6. Telefone do Dono;
-
-- *Ações Disponíveis:* Possibilitar a manutenção de cadastros existentes e inclusão de novos registros;
-
-#### Regras-Pets
-- Todos os campos deverão ser preenchidos;
-- O Pet deverá ser vinculado a um dono;
-- Para alterções/deleções, o usuário precisará confirmar a operação;
-- As Raças e Especíes deverão ser campos do tipo compo, com informações já definidas;
-
-#### Visualizar Pets
-- O sistema deverá apresentar todos os dados dos Pets e do seu dono;
-
-### Donos
-
-- O sistema deverá apresentar todos os donos de pet cadastrados. Os campos apresentados serão:
-	1. Nome;
-	2. E-mail;
-	3. Telefone;
-
-- *Ações Disponíveis:* Possibilitar a manutenção de cadastros existentes e inclusão de novos registros;
-
-#### Regras-Dono
-- Todos os campos deverão ser preenchidos;
-- Para alterções/deleções, o usuário precisará confirmar a operação;
-
-#### Visualizar Pets
-- O sistema deverá apresentar todos os dados do seu dono e de todos os seus pets;
-
-
-## APIs
-
-**Pefixo**: https://5f779702d5c9cb001623760a.mockapi.io/api/v1
-
-### Donos
-- **Get:** /owner
-- **Get ID:** /owner/{id}
-- **Get Pets:** /owner/{idOwner}/pets
-- **Post:** /owner/{id}
-- **Put:** /owner/{id}
-- **Delete:** /owner/{id}
-
-### Pets
-- **Get:** /pets
-- **Get ID:** /pets/{id}
-- **Post:** /pets/{id}
-- **Put:** /pets/{id}
-- **Delete:** /pets/{id}
-
-#
-
-## Diferenciais
-- Criar um processo de autenticação;
-- Design Responsivo;
-- Validação de formulários e máscaras;
-- Simular paginação e pesquisas;
-- Organização do Código e Commits;
-- Casos de Testes;
-
-
-#
-
-Caso tenha alguma sugestão de melhoria, nos avise!
-
-Boa sorte! :blue_heart:
+## Obrigado pela oportunidade :)
