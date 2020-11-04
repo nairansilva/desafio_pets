@@ -1,99 +1,102 @@
 <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item active" aria-current="page">Gerenciamento de pets</li>
-    </ol>
-  </nav>
-  <div *ngIf="donos.length!=0" class="container">
-    <div class="card list-pet">
-      <h5 class="card-header">Lista de pets</h5>
-      <div class="card-body">
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Apelido</th>
-                <th scope="col">Raça</th>
-                <th scope="col">Especie</th>
-                <th scope="col">Dono</th>
-              </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let pet of pets">
-                  <td>{{pet.id}}</td>
-                  <td>{{pet.nome}}</td>
-                  <td>{{pet.apelido}}</td>
-                  <td>{{pet.raca}}</td>
-                  <td>{{pet.especie}}</td>
-                  <ng-container *ngFor="let dono of donos">
-                    <td *ngIf="pet.id_dono==dono.id">{{dono.nome}} - {{dono.telefone}}</td>
-                  </ng-container>
-                  <td>
-                    <button type="button" class="btn btn-warning btn-sm" (click)="editPet(pet)">Editar</button>
-                    <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deletePet(pet)">Deletar</button>
-                  </td>
-                </tr>
-              </tbody>
-          </table>
-      </div>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Gerenciamento de pets</li>
+  </ol>
+</nav>
+<div *ngIf="donos.length!=0">
+  <div class="card list-pet" *ngIf="pets.length!=0">
+    <h5 class="card-header">Lista de pets</h5>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Apelido</th>
+            <th scope="col">Raça</th>
+            <th scope="col">Especie</th>
+            <th scope="col">Dono</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pet of pets">
+            <td>{{pet.id}}</td>
+            <td>{{pet.nome}}</td>
+            <td>{{pet.apelido}}</td>
+            <td>{{pet.raca}}</td>
+            <td>{{pet.especie}}</td>
+            <ng-container *ngFor="let dono of donos">
+              <td *ngIf="pet.id_dono==dono.id">{{dono.nome}} - {{dono.telefone}}</td>
+            </ng-container>
+            <td>
+              <button type="button" class="btn btn-warning btn-sm" (click)="editPet(pet)">Editar</button>
+              <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deletePet(pet)">Deletar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 
 
 
 
-    <div class="card add-pet">
-      <h5 class="card-header">Adicionar/Atualizar pet</h5>
-      <div class="card-body">
-          <form id="add-form" (ngSubmit)="f.form.valid && savePet(f)" #f="ngForm" novalidate>
-            <div class="form-group">
-                <label for="nome">Nome</label>
-                <input type="text" [(ngModel)]="pet.nome" id="nome" name="nome" #nome="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && nome.invalid }" placeholder="Digite o nome">
-                <div *ngIf="f.submitted && nome.invalid" class="invalid-feedback">
-                    <div *ngIf="nome.errors.required">Nome é obrigatório</div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="apelido">Apelido</label>
-                <input type="text" [(ngModel)]="pet.apelido" id="apedido" name="apedido" #apelido="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && apelido.invalid }" placeholder="Digite o apelido">
-                <div *ngIf="f.submitted && apelido.invalid" class="invalid-feedback">
-                    <div *ngIf="apelido.errors.required">Apelido é obrigatório</div>
-                </div>
-            </div>
+  <div class="card add-pet">
+    <h5 class="card-header">Adicionar/Atualizar pet</h5>
+    <div class="card-body">
+      <form id="add-form" (ngSubmit)="f.form.valid && savePet(f)" #f="ngForm" novalidate>
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" [(ngModel)]="pet.nome" id="nome" name="nome" #nome="ngModel" required class="form-control"
+            [ngClass]="{ 'is-invalid': f.submitted && nome.invalid }" placeholder="Digite o nome">
+          <div *ngIf="f.submitted && nome.invalid" class="invalid-feedback">
+            <div *ngIf="nome.errors.required">Nome é obrigatório</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="apelido">Apelido</label>
+          <input type="text" [(ngModel)]="pet.apelido" id="apedido" name="apedido" #apelido="ngModel" required
+            class="form-control" [ngClass]="{ 'is-invalid': f.submitted && apelido.invalid }"
+            placeholder="Digite o apelido">
+          <div *ngIf="f.submitted && apelido.invalid" class="invalid-feedback">
+            <div *ngIf="apelido.errors.required">Apelido é obrigatório</div>
+          </div>
+        </div>
 
-            <div class="form-group">
-              <label for="especie">Especie</label>
-              <select [(ngModel)]="pet.especie" name="especie" id="especie" class="form-control">
-                <option *ngFor="let especie of especies" value="{{especie.name}}">{{especie.name}}</option>
-              </select>
-            </div>
+        <div class="form-group">
+          <label for="especie">Especie</label>
+          <select [(ngModel)]="pet.especie" name="especie" id="especie" class="form-control">
+            <option *ngFor="let especie of especies" value="{{especie.name}}">{{especie.name}}</option>
+          </select>
+        </div>
 
-            <div class="form-group">
-              <label for="raca">Raça</label>
-              <select *ngIf="pet.especie==='Cachorro'" [(ngModel)]="pet.raca" name="raca" id="raca" class="form-control">
-                <option *ngFor="let raca of racasdog" value="{{raca.name}}">{{raca.name}}</option>
-              </select>
+        <div class="form-group">
+          <label for="raca">Raça</label>
+          <select *ngIf="pet.especie==='Cachorro'" [(ngModel)]="pet.raca" name="raca" id="raca" class="form-control">
+            <option *ngFor="let raca of racasdog" value="{{raca.name}}">{{raca.name}}</option>
+          </select>
 
-              <select *ngIf="pet.especie==='Gato'" [(ngModel)]="pet.raca" name="raca" id="raca" class="form-control">
-                <option *ngFor="let raca of racascat" value="{{raca.name}}">{{raca.name}}</option>
-              </select>
-            </div>
+          <select *ngIf="pet.especie==='Gato'" [(ngModel)]="pet.raca" name="raca" id="raca" class="form-control">
+            <option *ngFor="let raca of racascat" value="{{raca.name}}">{{raca.name}}</option>
+          </select>
+        </div>
 
-            <div class="form-group">
-                <label for="id_dono">Dono</label>
-                <!--<input type="number" [(ngModel)]="pet.id_dono" id="id_dono" name="id_dono" #id_dono="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && id_dono.invalid }" placeholder="Digite o Id do dono">
+        <div class="form-group">
+          <label for="id_dono">Dono</label>
+          <!--<input type="number" [(ngModel)]="pet.id_dono" id="id_dono" name="id_dono" #id_dono="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && id_dono.invalid }" placeholder="Digite o Id do dono">
                 <div *ngIf="f.submitted && id_dono.invalid" class="invalid-feedback">
                     <div *ngIf="id_dono.errors.required">Id do dono é obrigatório</div>
                 </div> !-->
 
-                <select [(ngModel)]="pet.id_dono" name="id_dono" id="id_dono" class="form-control">
-                  <option *ngFor="let dono of donos" value="{{dono.id}}">{{dono.nome}}</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-primary btn-add-pet">Salvar</button>
-            <button type="reset" class="btn btn-secondary btn-add-pet" (click)="cleanForm(f)">Cancelar</button>
-          </form>
-      </div>
+          <select [(ngModel)]="pet.id_dono" name="id_dono" id="id_dono" class="form-control">
+            <option *ngFor="let dono of donos" value="{{dono.id}}">{{dono.nome}}</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-add-pet">Salvar</button>
+        <button type="reset" class="btn btn-secondary btn-add-pet" (click)="cleanForm(f)">Cancelar</button>
+      </form>
     </div>
+  </div>
 </div>
 <div *ngIf="donos.length==0" class="container">
   <div class="card list-pet">

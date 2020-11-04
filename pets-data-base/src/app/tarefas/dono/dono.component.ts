@@ -18,8 +18,8 @@ export class DonoComponent implements OnInit {
   pet = {} as Pet;
   pets: Pet[];
 
-  constructor(private donoService: DonoService, private petService: PetService) {}
-  
+  constructor(private donoService: DonoService, private petService: PetService) { }
+
   ngOnInit() {
     this.getDonos();
     this.getPets();
@@ -58,7 +58,7 @@ export class DonoComponent implements OnInit {
   deleteDono(dono: Dono) {
     if (confirm('Tem certeza que deseja deletar os dados?')) {
       this.pets.forEach(element => {
-        if(element.id_dono == dono.id) {
+        if (element.id_dono == dono.id) {
           this.petService.deletePet(element).subscribe(() => {
 
           });
@@ -88,4 +88,21 @@ export class DonoComponent implements OnInit {
     form.resetForm();
     this.dono = {} as Dono;
   }
+
+  OnlyNumbers($event) {
+    let regex: RegExp = new RegExp(/^[0-9]{1,}$/g);
+    let specialKeys: Array<string> = ['Backspace', 'Tab', 'End', 'Home', 'ArrowRight', 'ArrowLeft'];
+    if (specialKeys.indexOf($event.key) !== -1) {
+      return;
+    } 
+    else {
+      if (regex.test($event.key)) {
+        return true;
+      } 
+      else {
+        return false;
+      }
+    }
+  }
+
 }

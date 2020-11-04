@@ -13,3 +13,15 @@
 .btn-add-dono {
     margin-right: 10px;
 }
+
+.card-body {
+    overflow-x:auto;
+}
+
+.btn-warning {
+    margin: 1%;
+}
+
+.btn-danger {
+    margin: 1%;
+}
