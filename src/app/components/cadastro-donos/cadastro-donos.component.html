@@ -1,0 +1,131 @@
+<po-navbar
+  p-shadow
+  [p-items]="menus"
+  p-logo="https://po-ui.io/assets/graphics/po.png"
+>
+</po-navbar>
+
+<div class="po-wrapper">
+  <router-outlet></router-outlet>
+</div>
+
+<po-page-default p-title="Cadastro Donos">
+  <div class="tools">
+    <po-button class="button"
+      p-label="Novo"
+      p-type="primary"
+      (p-click)="newOwner()"
+    >
+    </po-button>
+  </div>
+
+  <po-loading-overlay
+  [hidden]="isHideLoading"
+  >
+  </po-loading-overlay>
+
+  <po-table
+    p-container
+    [p-columns]="columns"
+    [p-items]="items"
+    [p-actions]="actions"
+    p-sort="true"
+    p-striped="true"
+    (p-expanded)="onExpandPets($event)"
+  >
+  <po-loading-overlay
+    [hidden]="isHideLoading"
+    >
+  </po-loading-overlay>
+  </po-table>
+
+  <po-modal #detailModal p-click-out="true" p-size="sm" p-title="{{ detail?.name }}" [p-primary-action]="detailClose">
+    <po-divider
+      p-label="Informações do Dono" >
+    </po-divider>
+
+    <div class="po-row">
+      <po-info class="po-sm-4" p-label="ID" [p-value]="detail?.id"> </po-info>
+
+      <po-info class="po-sm-4" p-label="Nascimento" [p-value]="detail?.birthday"> </po-info>
+
+      <po-info class="po-sm-4" p-label="Telefone" [p-value]="detail?.phone"> </po-info>
+    </div>
+
+    <div class="po-row">
+      <po-info class="po-sm-12" p-label="E-mail" [p-value]="detail?.email"> </po-info>
+    </div>
+
+    <div class="po-row">
+      <po-info class="po-sm-12" p-label="Endereço" [p-value]="detail?.address"> </po-info>
+    </div>
+
+    <po-loading-overlay
+      [hidden]="isHideLoading"
+      >
+    </po-loading-overlay>
+  </po-modal>
+
+  <po-modal #editModal p-click-out="true" p-size="sm" p-title="Alteração de Cadastro" [p-primary-action]="editSave"
+    [p-secondary-action]="editCancel">
+    <form [formGroup]="editOwnerForm">
+      <po-divider
+        p-label="Informações do Dono" >
+      </po-divider>
+
+      <div class="po-row">
+        <po-input class="po-sm-2" formControlName="id" p-disabled p-clean p-icon="po-icon-credit-payment" p-label="ID"></po-input>
+
+        <po-input class="po-sm-10" formControlName="nome" p-clean p-icon="po-icon-user" p-label="Nome *"></po-input>
+      </div>
+
+      <div class="po-row">
+        <po-datepicker class="po-sm-6" formControlName="nascimento" p-clean p-icon="po-icon-calendar" p-locale='pt' p-format='dd/mm/yyyy' p-label="Nascimento"> </po-datepicker>
+
+        <po-input class="po-sm-6" formControlName="telefone" p-clean p-icon="po-icon-telephone" p-label="Telefone *"></po-input>
+      </div>
+
+      <div class="po-row">
+        <po-input class="po-sm-6" formControlName="endereco" p-clean p-icon="po-icon-pin" p-label="Endereço *"></po-input>
+
+        <po-email class="po-sm-6" formControlName="email" p-clean p-icon="po-icon-mail" p-label="Email *"></po-email>
+      </div>
+    </form>
+
+    <po-loading-overlay
+      [hidden]="isHideLoading"
+      >
+    </po-loading-overlay>
+  </po-modal>
+
+  <po-modal #newModal p-click-out="true" p-size="sm" p-title="Novo Dono" [p-primary-action]="newSave"
+    [p-secondary-action]="newCancel">
+
+    <form [formGroup]="newOwnerForm">
+      <po-divider
+        p-label="Informações do Dono" >
+      </po-divider>
+
+      <div class="po-row">
+        <po-input class="po-sm-12" formControlName="nome" p-clean p-icon="po-icon-user" p-label="Nome *"></po-input>
+      </div>
+
+      <div class="po-row">
+        <po-datepicker class="po-sm-6" formControlName="nascimento" p-clean p-icon="po-icon-calendar" p-locale='pt' p-format='dd/mm/yyyy' p-label="Nascimento"> </po-datepicker>
+
+        <po-input class="po-sm-6" formControlName="telefone" p-clean p-icon="po-icon-telephone" p-label="Telefone *"></po-input>
+      </div>
+
+      <div class="po-row">
+        <po-input class="po-sm-6" formControlName="endereco" p-clean p-icon="po-icon-pin" p-label="Endereço *"></po-input>
+
+        <po-email class="po-sm-6" formControlName="email" p-clean p-icon="po-icon-mail" p-label="Email *"></po-email>
+      </div>
+    </form>
+
+    <po-loading-overlay
+      [hidden]="isHideLoading"
+      >
+    </po-loading-overlay>
+  </po-modal>
+</po-page-default>

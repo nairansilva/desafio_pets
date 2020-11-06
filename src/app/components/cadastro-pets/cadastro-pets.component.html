@@ -1,0 +1,292 @@
+<po-navbar
+  p-shadow
+  [p-items]="menus"
+  p-logo="https://po-ui.io/assets/graphics/po.png"
+>
+</po-navbar>
+
+<div class="po-wrapper">
+  <router-outlet></router-outlet>
+</div>
+
+<po-page-default p-title="Cadastro Pets">
+  <div class="tools">
+    <po-button class="button"
+      p-label="Novo"
+      p-type="primary"
+      (p-click)="newPet()"
+    >
+    </po-button>
+  </div>
+
+  <po-loading-overlay
+  [hidden]="isHideLoading"
+  >
+  </po-loading-overlay>
+
+  <po-table
+    p-container
+    [p-columns]="columns"
+    [p-items]="items"
+    [p-actions]="actions"
+    p-sort="true"
+    p-striped="true"
+  >
+  <po-loading-overlay
+    [hidden]="isHideLoading"
+    >
+  </po-loading-overlay>
+  </po-table>
+
+  <po-modal #detailModal p-click-out="true" p-size="sm" p-title="{{ detail?.pet?.name }}" [p-primary-action]="detailClose">
+    <po-divider
+      p-label="Informações do Pet" >
+    </po-divider>
+
+    <div class="po-row">
+      <po-info class="po-sm-6" p-label="ID" [p-value]="'#' + detail?.pet?.id"> </po-info>
+
+      <po-info class="po-sm-6" p-label="Apelido" [p-value]="detail?.pet?.nickName"> </po-info>
+    </div>
+
+    <div class="po-row">
+      <po-info class="po-sm-6" p-label="Nascimento" [p-value]="detail?.pet?.birthday"> </po-info>
+
+      <po-info class="po-sm-6" p-label="Espécie" [p-value]="detail?.pet?.species"> </po-info>
+    </div>
+
+    <div class="po-row">
+      <po-info class="po-sm-6" p-label="Raça" [p-value]="detail?.pet?.breed"> </po-info>
+
+      <po-info class="po-sm-6" p-label="Tamanho" [p-value]="detail?.pet?.size + ' cm'"> </po-info>
+    </div>
+
+    <po-divider
+      p-label="Informações do Dono" >
+    </po-divider>
+
+    <div class="po-row">
+      <po-info class="po-sm-2" p-label="ID do Dono" [p-value]="'#' + detail?.dono?.id"> </po-info>
+
+      <po-info class="po-sm-10" p-label="Nome do Dono" [p-value]="detail?.dono?.name"> </po-info>
+    </div>
+
+    <div class="po-row">
+      <po-info class="po-sm-6" p-label="Nascimento do Dono" [p-value]="detail?.dono?.birthday"> </po-info>
+
+      <po-info class="po-sm-6" p-label="Telefone do Dono" [p-value]="detail?.dono?.phone"> </po-info>
+    </div>
+
+    <div class="po-row">
+      <po-info class="po-sm-12" p-label="E-mail do Dono" [p-value]="detail?.dono?.email"> </po-info>
+    </div>
+
+    <div class="po-row">
+      <po-info class="po-sm-12" p-label="Endereço do Dono" [p-value]="detail?.dono?.address"> </po-info>
+    </div>
+
+    <po-loading-overlay
+      [hidden]="isHideLoading"
+      >
+    </po-loading-overlay>
+  </po-modal>
+
+  <po-modal #editModal p-click-out="true" p-size="sm" p-title="Alteração de Cadastro" [p-primary-action]="editSave"
+    [p-secondary-action]="editCancel">
+    <form [formGroup]="editPetForm">
+      <po-divider
+        p-label="Informações do Pet" >
+      </po-divider>
+
+      <div class="po-row">
+        <po-input class="po-sm-2" formControlName="id" p-disabled p-clean p-icon="po-icon-credit-payment" p-label="ID"></po-input>
+
+        <po-input class="po-sm-5" formControlName="nome" p-clean p-icon="po-icon-credit-payment" p-label="Nome *"></po-input>
+
+        <po-input class="po-sm-5" formControlName="apelido" p-clean p-icon="po-icon-credit-payment" p-label="Apelido *"></po-input>
+      </div>
+
+      <div class="po-row">
+        <po-datepicker class="po-sm-6" formControlName="nascimento" p-clean p-icon="po-icon-calendar" p-locale='pt' p-format='dd/mm/yyyy' p-label="Nascimento"> </po-datepicker>
+
+        <po-combo
+          class="po-sm-6"
+          name="especie"
+          p-icon="po-icon-grid"
+          formControlName="especie"
+          p-label="Espécie *"
+          p-required
+          p-field-value="1"
+          p-sort
+          [p-options]="especiesOptions"
+          p-filter-mode="contains"
+          (p-change)="onChangeEspecie($event)"
+        >
+
+          <ng-template p-combo-option-template let-option>
+            <div class="po-row">
+              <div class="po-sm-10 po-md-9 po-lg-11">
+                <div class="po-font-text-large-bold">{{ option.label }}</div>
+              </div>
+            </div>
+          </ng-template>
+        </po-combo>
+      </div>
+
+      <div class="po-row">
+        <po-combo
+          class="po-sm-6"
+          name="raca"
+          p-icon="po-icon-grid"
+          formControlName="raca"
+          p-label="Raça *"
+          p-required
+          p-sort
+          [p-disabled]="racasDisabled"
+          [p-options]="racasOptions"
+          p-filter-mode="contains"
+        >
+
+          <ng-template p-combo-option-template let-option>
+            <div class="po-row">
+              <div class="po-sm-10 po-md-9 po-lg-11">
+                <div class="po-font-text-large-bold">{{ option.label }}</div>
+              </div>
+            </div>
+          </ng-template>
+        </po-combo>
+
+        <po-input class="po-sm-6" formControlName="tamanho" p-clean p-icon="po-icon-weight" p-label="Tamanho (cm) *"></po-input>
+      </div>
+
+      <po-divider
+        p-label="Informações do Dono" >
+      </po-divider>
+
+      <div class="po-row">
+        <po-input class="po-sm-2" formControlName="id_dono" p-disabled p-clean p-icon="po-icon-credit-payment" p-label="ID do Dono"></po-input>
+
+        <po-input class="po-sm-10" formControlName="nome_dono" p-disabled p-clean p-icon="po-icon-user" p-label="Nome do Dono"></po-input>
+      </div>
+
+      <div class="po-row">
+        <po-input class="po-sm-12" formControlName="telefone_dono" p-disabled p-clean p-icon="po-icon-telephone" p-label="Telefone do Dono"></po-input>
+      </div>
+    </form>
+
+    <po-loading-overlay
+      [hidden]="isHideLoading"
+      >
+    </po-loading-overlay>
+  </po-modal>
+
+  <po-modal #newModal p-click-out="true" p-size="sm" p-title="Novo Pet" [p-primary-action]="newSave"
+    [p-secondary-action]="newCancel">
+
+    <form [formGroup]="newPetForm">
+      <po-divider
+        p-label="Informações do Pet" >
+      </po-divider>
+
+      <div class="po-row">
+        <po-input class="po-sm-6" formControlName="nome" p-clean p-icon="po-icon-credit-payment" p-label="Nome *"></po-input>
+
+        <po-input class="po-sm-6" formControlName="apelido" p-clean p-icon="po-icon-credit-payment" p-label="Apelido *"></po-input>
+      </div>
+
+      <div class="po-row">
+        <po-datepicker class="po-sm-6" formControlName="nascimento" p-clean p-icon="po-icon-calendar" p-locale='pt' p-format='dd/mm/yyyy' p-label="Nascimento"> </po-datepicker>
+
+        <po-combo
+        class="po-sm-6"
+        name="especie"
+        p-icon="po-icon-grid"
+        formControlName="especie"
+        p-label="Espécie *"
+        p-required
+        p-sort
+        [p-options]="especiesOptions"
+        p-filter-mode="contains"
+        (p-change)="onChangeEspecie($event)"
+        >
+
+          <ng-template p-combo-option-template let-option>
+            <div class="po-row">
+              <div class="po-sm-10 po-md-9 po-lg-11">
+                <div class="po-font-text-large-bold">{{ option.label }}</div>
+              </div>
+            </div>
+          </ng-template>
+        </po-combo>
+      </div>
+
+      <div class="po-row">
+        <po-combo
+        class="po-sm-6"
+        name="raca"
+        p-icon="po-icon-grid"
+        formControlName="raca"
+        p-label="Raça *"
+        p-required
+        p-sort
+        [p-disabled]="racasDisabled"
+        [p-options]="racasOptions"
+        p-filter-mode="contains"
+        >
+
+          <ng-template p-combo-option-template let-option>
+            <div class="po-row">
+              <div class="po-sm-10 po-md-9 po-lg-11">
+                <div class="po-font-text-large-bold">{{ option.label }}</div>
+              </div>
+            </div>
+          </ng-template>
+        </po-combo>
+
+        <po-input class="po-sm-6" formControlName="tamanho" p-clean p-icon="po-icon-weight" p-label="Tamanho (cm) *"></po-input>
+      </div>
+
+      <po-divider
+        p-label="Informações do Dono" >
+      </po-divider>
+
+      <div class="po-row">
+        <po-combo
+          class="po-sm-12"
+          name="nome_dono"
+          p-icon="po-icon-user"
+          formControlName="nome_dono"
+          p-label="Nome do Dono *"
+          p-required
+          p-sort
+          [p-options]="donosOptions"
+          p-filter-mode="contains"
+          (p-change)="onChangeDono($event)"
+        >
+
+        <ng-template p-combo-option-template let-option>
+          <div class="po-row">
+            <po-avatar class="po-sm-2 po-md-3 po-lg-1" p-size="sm"></po-avatar>
+
+            <div class="po-sm-10 po-md-9 po-lg-11">
+              <div class="po-font-text-large-bold">{{ option.label }}</div>
+              <div class="po-font-text-smaller">ID: #{{ option.value }}</div>
+            </div>
+          </div>
+        </ng-template>
+        </po-combo>
+      </div>
+
+      <div class="po-row">
+        <po-input class="po-sm-2" formControlName="id_dono" p-disabled p-clean p-icon="po-icon-credit-payment" p-label="ID *"></po-input>
+
+        <po-input class="po-sm-10" formControlName="telefone_dono" p-disabled p-clean p-icon="po-icon-telephone" p-label="Telefone do Dono *"></po-input>
+      </div>
+    </form>
+
+    <po-loading-overlay
+      [hidden]="isHideLoading"
+      >
+    </po-loading-overlay>
+  </po-modal>
+</po-page-default>

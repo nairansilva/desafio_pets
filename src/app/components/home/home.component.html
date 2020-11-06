@@ -1,0 +1,39 @@
+<po-navbar
+  p-shadow
+  [p-items]="menus"
+  p-logo="https://po-ui.io/assets/graphics/po.png"
+>
+</po-navbar>
+
+<div class="po-wrapper">
+  <router-outlet></router-outlet>
+</div>
+
+<po-page-default p-title="Início">
+  <div class="po-row">
+    <po-widget class="po-md-6 po-lg-6 po-mb-2" p-title="Donos Cadastrados">
+      <div class="po-font-subtitle po-text-center">{{ donos }}</div>
+    </po-widget>
+
+    <po-widget class="po-md-6 po-lg-6 po-mb-2" p-title="Pets Cadastrados">
+      <div class="po-font-subtitle po-text-center">{{ pets }}</div>
+    </po-widget>
+
+    <po-widget class="po-md-4 po-lg-4 po-mb-2" p-title="Espécies Cadastradas">
+      <div class="po-font-subtitle po-text-center">2</div>
+    </po-widget>
+
+    <po-widget class="po-md-4 po-lg-4 po-mb-2" p-title="Raças de Gatos Cadastradas">
+      <div class="po-font-subtitle po-text-center">{{ dogEspecies }}</div>
+    </po-widget>
+
+    <po-widget class="po-md-4 po-lg-4 po-mb-2" p-title="Raças de Cachorros Cadastradas">
+      <div class="po-font-subtitle po-text-center">{{ catEspecies }}</div>
+    </po-widget>
+  </div>
+
+  <po-loading-overlay
+    [hidden]="isHideLoading"
+  >
+  </po-loading-overlay>
+</po-page-default>
