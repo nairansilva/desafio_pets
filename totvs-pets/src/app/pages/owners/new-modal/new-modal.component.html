@@ -1,0 +1,33 @@
+<modal-title>
+  <h5>Cadastro novo dono</h5>
+</modal-title>
+<form (submit)="addOwner()">
+  <modal-body>
+    <div>
+      <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" required name="name"  type="text" [(ngModel)]="owner.name" >
+        <p *ngIf="validationErrors.name" class="error">*{{validationErrors.name}}</p>
+
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input class="form-control" required name="email" type="email" [(ngModel)]="owner.email" >
+        <p *ngIf="validationErrors.email" class="error">*{{validationErrors.email}}</p>
+      </div>
+
+      <div class="form-group">
+        <label>Telefone</label>
+        <input class="form-control" required name="phone" mask="(00) 00000-0000" type="text" [(ngModel)]="owner.phone" >
+        <p *ngIf="validationErrors.phone" class="error">*{{validationErrors.phone}}</p>
+      </div>
+    </div>
+  </modal-body>
+  <modal-footer>
+    <div>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </div>
+  </modal-footer>
+</form>

@@ -1,0 +1,15 @@
+<ng-container *ngIf="(owner$|async) as owner">
+  <modal-title>
+    <h5>Excluir dono {{owner.name}}</h5>
+  </modal-title>
+  <modal-body>
+    <div>
+    Deseja excluir o dono {{owner.name}}?</div>
+  </modal-body>
+  <modal-footer>
+  <div>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary" (click)="destroy()">Excluir</button>
+  </div>
+  </modal-footer>
+</ng-container>

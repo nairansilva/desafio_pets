@@ -1,0 +1,60 @@
+#container{
+  height: 100vh;
+  display: flex;
+  align-items: stretch;
+  background: #312e38;
+}
+.content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 700px;
+}
+#backgroundImg{
+  flex: 1;
+  background:  url(../../../assets/adorable-white-bulldog-puppy-portrait.jpg) no-repeat center bottom ;
+  background-size: cover;
+}
+.animationContainer{
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+}
+form{
+  margin: 80px 0;
+  width: 340px;
+  text-align: center;
+}
+h1{
+  margin-bottom: 24px;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 500;
+  color: #f4ede8;
+  margin-bottom: 30px;
+}
+a {
+  color: #f4ede8;
+  display: block;
+  margin-top: 24px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+img{
+  margin-bottom: 30px;
+}
+button{
+  background: #dcdbd6;
+  height: 56px;
+  border-radius: 10px;
+  border: 0;
+  padding: 0 16px;
+  color: #220052;
+  width: 100%;
+  font-weight: 500;
+  margin-top: 30px;
+  -webkit-transition: background-color 0.2s;
+  font-family: 'Roboto Slab', serif;
+  transition: background-color 0.2s;
+}

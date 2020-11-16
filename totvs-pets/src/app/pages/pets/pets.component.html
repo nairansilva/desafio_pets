@@ -1,0 +1,49 @@
+<div class="container section-page" >
+  <div class="row">
+    <h1 class="title-section">Listagem de pets  <a routerLink="/owners"><- Ver listagem de donos</a></h1>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <td colspan="3">
+              <div class="row">
+                <div class="col-12 col-md-12">
+                  <input-search (onSearch)="handleSearch($event)"></input-search>
+                </div>
+              </div>
+            </td>
+        </tr>
+        <tr>
+            <ng-container *ngFor="let column of columns">
+              <ng-container *ngIf="column.order | paginate: pagination">
+                <th [sortColumn]="sortColumn" [columnName]="column.name" (onSort)="handleSort($event)">{{column.label}}</th>
+              </ng-container>
+              <ng-container *ngIf="!column.order">
+                <th>{{column.label}}</th>
+              </ng-container>
+            </ng-container>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let pet of pets | paginate: pagination" >
+
+            <td>
+                <img src="{{pet.specie.url}}" alt="Pet" class="pet-list">
+                {{pet.name}}
+            </td>
+            <td>
+                {{pet.nickname}}
+            </td>
+            <td>
+              {{pet.owner.name}} - {{pet.owner.phone}} - {{pet.owner.email}}
+          </td>
+        </tr>
+        <tr *ngIf="!pets.length">
+          <td [colSpan]="columns.length">Nenhum registro encontrado</td>
+        </tr>
+        </tbody>
+    </table>
+    <div style="margin-left: auto;">
+      <pagination-controls previousLabel="Anterior" nextLabel="Próximo" (pageChange)="handlePagination($event)"></pagination-controls>
+    </div>
+  </div>
+  </div>

@@ -1,0 +1,98 @@
+<div class="container section-page" >
+<div class="row">
+  <h1 class="title-section">Donos dos pets <a routerLink="/pets">Ver listagem de pets -></a></h1>
+  <table class="table table-striped">
+      <thead>
+      <tr>
+          <td colspan="5">
+            <div class="row">
+              <div class="col-2 col-md-1">
+                <button class="btn btn-primary"  title="Novo dono" (click)="openNewModal()">
+                  <img src="assets/plus.svg" alt="Logo" style="width:15px;">
+                </button>
+              </div>
+              <div class="col-9 col-md-11">
+                <input-search (onSearch)="handleSearch($event)"></input-search>
+              </div>
+            </div>
+          </td>
+      </tr>
+      <tr>
+          <ng-container *ngFor="let column of columns">
+            <ng-container *ngIf="column.order | paginate: pagination">
+              <th [sortColumn]="sortColumn" [columnName]="column.name" (onSort)="handleSort($event)">{{column.label}}</th>
+            </ng-container>
+            <ng-container *ngIf="!column.order">
+              <th>{{column.label}}</th>
+            </ng-container>
+          </ng-container>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let owner of owners | paginate: pagination" >
+          <td>
+            <a href="javascript:void(0);" (click)="openEditModal(owner)">
+                {{owner.name}}
+            </a>
+          </td>
+          <td>
+              {{owner.email}}
+          </td>
+          <td>
+            <span>
+              {{owner.phone | mask:'(00) 00000-0000' }}
+            </span>
+          </td>
+          <td>
+              <a href="javascript:void(0)" (click)="viewPet(owner)">Ver pets</a> |
+              <a href="javascript:void(0)" (click)="openCreatePet(owner)">Cadastrar</a></td>
+          <td>
+              <a href="javascript:void(0)" (click)="openEditModal(owner)">Editar</a> |
+              <a href="javascript:void(0)" (click)="openDestroyModal(owner)">Excluir</a>
+          </td>
+      </tr>
+      <tr *ngIf="!owners.length">
+        <td [colSpan]="columns.length">Nenhum registro encontrado</td>
+      </tr>
+      </tbody>
+  </table>
+  <div style="margin-left: auto;">
+    <pagination-controls previousLabel="Anterior" nextLabel="Próximo" (pageChange)="handlePagination($event)"></pagination-controls>
+  </div>
+</div>
+<div class="row" *ngIf="selectedOwner">
+  <h1 class="title-section" style="margin-top: 40px;">Pets de {{selectedOwner.name}}</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+          <th>Pet</th>
+          <th>Espécie</th>
+          <th>Raça</th>
+          <th>Ações</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pet of selectedOwner.pets" >
+          <td>
+            <img src="{{pet.specie.url}}" alt="Pet" class="pet-list">
+            {{pet.nickname}} - {{pet.name}}
+          </td>
+          <td>
+            {{pet.specie.name}}
+          </td>
+          <td>
+            {{pet.breed.name}}
+          </td>
+          <td>
+            <a href="javascript:void(0)" (click)="openEditPetModal(pet)">Editar</a> |
+            <a href="javascript:void(0)" (click)="openDestroyPetModal(pet)">Excluir</a>
+        </td>
+        </tr>
+        <tr *ngIf="!selectedOwner.pets.length">
+          <td [colSpan]="4">Nenhum registro encontrado</td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+
+</div>

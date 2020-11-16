@@ -1,0 +1,47 @@
+<modal-title>
+  <h5>Editar pet | Dono : {{pet?.owner.name}}</h5>
+</modal-title>
+<form (submit)="editPet()">
+<modal-body>
+  <fieldset >
+    <div>
+      <div class="form-group">
+      <label>Nome</label>
+      <input class="form-control" required name="name"  type="text" [(ngModel)]="pet.name" >
+      <p *ngIf="validationErrors.name" class="error">*{{validationErrors.name}}</p>
+      </div>
+
+      <div class="form-group">
+      <label>Apelido</label>
+      <input class="form-control" required name="nickname"  type="text" [(ngModel)]="pet.nickname" >
+      <p *ngIf="validationErrors.nickname" class="error">*{{validationErrors.nickname}}</p>
+      </div>
+
+
+      <div class="form-group" >
+        <label>Espécie</label>
+        <select class="form-control" name='specie_id'  (change)="onSelectionChange($event)" [(ngModel)]="pet.specie_id">
+          <option *ngFor="let specie of species" [value]="specie.id">{{ specie.name }}</option>
+        </select>
+        <p *ngIf="validationErrors.nickname" class="error">*{{validationErrors.specie_id}}</p>
+      </div>
+
+
+      <div class="form-group">
+        <label>Raça</label>
+        <select class="form-control" name="breed_id" [(ngModel)]="pet.breed_id">
+          <option *ngFor="let breed of breeds" [value]="breed.id">{{ breed.name }}</option>
+        </select>
+        <p *ngIf="validationErrors.breed_id" class="error">*{{validationErrors.breed_id}}</p>
+      </div>
+    </div>
+
+  </fieldset>
+</modal-body>
+<modal-footer>
+  <div>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-primary">Editar</button>
+</div>
+</modal-footer>
+</form>
