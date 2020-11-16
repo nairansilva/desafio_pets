@@ -26,7 +26,7 @@ export class PetHttpService {
   constructor(private http: HttpClient,private jwtToken: JwtTokenService){
   }
 
-  private baseUrl = 'http://localhost:3333/pets';
+  private baseUrl = 'http://167.71.83.238/pets';
 
 
  async list({search, sort, pagination } : ListHttpParams): Promise<any> {

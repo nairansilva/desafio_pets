@@ -26,7 +26,7 @@ export class OwnerHttpService {
   constructor(private http: HttpClient,private jwtToken: JwtTokenService){
   }
 
-  private baseUrl = 'http://localhost:3333/owner';
+  private baseUrl = 'http://167.71.83.238/owner';
 
 
   async list({search, sort, pagination } : ListHttpParams): Promise<any> {

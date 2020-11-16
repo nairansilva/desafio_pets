@@ -9,7 +9,7 @@ export class SpeciesHttpService {
   constructor(private http: HttpClient,private jwtToken: JwtTokenService){
   }
 
-  private baseUrl = 'http://localhost:3333/species';
+  private baseUrl = 'http://167.71.83.238/species';
 
 
   async list(): Promise<any> {

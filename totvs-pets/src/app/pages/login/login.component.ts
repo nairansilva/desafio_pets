@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   async login() {
-    const data: any = await this.loginHttp.post("http://localhost:3333/sessions",this.user).toPromise()
+    const data: any = await this.loginHttp.post("http://167.71.83.238/sessions",this.user).toPromise()
     if(data.token){
       this.auth.check = true;
       this.jwtToken.token = data.token;
