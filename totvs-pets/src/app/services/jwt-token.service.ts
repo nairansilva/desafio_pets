@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LocalStorageService } from './local-storage.service';
-const TOKEN_KEY = 'token';
+const TOKEN_KEY = '@PETSMATHUS_token';
 @Injectable({
   providedIn: 'root'
 })
