@@ -1,12 +1,12 @@
-#Desafio Pets
+# Desafio Pets
 
-##Execução do Projeto
+## Execução do Projeto
 Após clonar o projeto, instale todas as dependencias executando o comando abaixo:
  
 ```
 cd desafio_pets/totvs-pets/
 ```
-##Rode o comando:
+## Rode o comando:
  
 ```
 npm install
