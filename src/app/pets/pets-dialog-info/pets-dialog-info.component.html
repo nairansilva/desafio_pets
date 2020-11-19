@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Informações Pet</h1>
+<div mat-dialog-content>
+  <form [formGroup]="formGroup" class="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Apelido</mat-label>
+      <input matInput formControlName="name" value="{{data?.nickName}}">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Raça</mat-label>
+      <input matInput formControlName="breed" value="{{data?.breed}}">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Especie</mat-label>
+      <input matInput formControlName="species" value="{{data?.species}}">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Telefone do Dono</mat-label>
+      <input matInput formControlName="telefoneDono" value="{{data?.telefoneDono}}">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions  class="card-actions">
+  <!-- Colocar [disabled]="!formGroup.valid" para so abilitar o botao com form preenchido -->
+  <button mat-raised-button type="submit" (click)="onSubmitClick()">Ok</button>
+  <button mat-raised-button color="warn" (click)="onNoClick()">No Thanks</button>
+</div>

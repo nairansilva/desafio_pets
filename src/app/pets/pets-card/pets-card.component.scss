@@ -1,0 +1,25 @@
+
+.description {
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+}
+
+.card {
+    max-width: 500px;
+    margin: 16px;
+}
+
+.card-actions {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.icon {
+    margin-right: 4px;
+}
+
+.mat-form-field-underline {
+    width: 0%;
+}
+  
