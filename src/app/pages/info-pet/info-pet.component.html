@@ -1,0 +1,43 @@
+<div id="container">
+  <app-header></app-header>
+  <main class="content">
+    <div class="header-container">
+      <div class="left">
+        <a routerLink="/pet">
+          <i class="material-icons">chevron_left</i>
+        </a>
+        <h1>Detalhes Pet</h1>
+      </div>
+      <a routerLink="/pet/edit/{{pet.id}}" class="edit-action">
+        <i class="material-icons">edit</i>
+      </a>
+    </div>
+    <div class="create-content">
+      <h3>Pet</h3>
+      <div class="owner-container">
+        <div class="column">
+          <p><span>Nome</span>{{pet.name}}</p>
+          <p><span>Apelido</span>{{pet.nickName}}</p>
+        </div>
+        <div class="column">
+          <p><span>Raça</span>{{pet.breed}}</p>
+          <p><span>Espécie</span>{{pet.species}}</p>
+        </div>
+      </div>
+      <h3>Dono</h3>
+      <ng-template #empty><br />Dono não encontrado</ng-template>
+      <div class="owner-container" *ngIf="owner; else empty">
+        <div class="column">
+          <p><span>Nome</span>{{owner.name}}</p>
+          <p><span>Email</span>{{owner.email}}</p>
+          <p><span>Telefone</span>{{owner.phone}}</p>
+        </div>
+        <div class="column">
+          <p><span>Data de nascimento</span>{{owner.birthday}}</p>
+          <p><span>Endereço</span>{{owner.address}}</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<app-footer></app-footer>

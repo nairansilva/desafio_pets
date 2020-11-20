@@ -1,0 +1,40 @@
+.header-container {
+  display: flex;
+  align-items: center;
+
+  h1 {
+    margin-bottom: 16px;
+  }
+
+  a {
+    margin-left: auto;
+  }
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+table {
+  width: 100%;
+
+  th {
+    font-size: 16px;
+  }
+
+  tr {
+    a{
+      opacity: 0.6;
+    }
+    
+    .actions a {
+      opacity: 1;
+    }
+
+    &:hover{ 
+      transition: 0.3s;
+      background-color: rgba(#5f30a2,0.1);
+    } 
+  }
+}

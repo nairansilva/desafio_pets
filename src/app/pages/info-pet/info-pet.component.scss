@@ -1,0 +1,60 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .left {
+    display: flex;
+    align-items: center;
+    h1 {
+      margin: 0 0 16px 10px;
+    }
+
+    a {
+      cursor: pointer;
+      i {
+        font-size: 50px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .edit-action i {
+    font-size: 28px;
+  }
+}
+
+.create-content {
+  display: flex;
+  flex-direction: column;
+  padding-top: 24px;
+
+  mat-form-field {
+    margin: 0 24px;
+  }
+
+  button {
+    margin-top: 24px;
+  }
+
+  .owner-container {
+    padding: 24px 0;
+    display: flex;
+
+    .column:first-child {
+      margin-right: 100px;
+    }
+
+    p {
+      margin-right: 24px;
+      margin-bottom: 24px;
+    }
+
+    span {
+      display: block;
+      font-weight: 400;
+      color: #5f30a2;
+      margin-bottom: 8px;
+    }
+  }
+}

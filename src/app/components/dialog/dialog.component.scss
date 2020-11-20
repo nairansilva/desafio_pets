@@ -1,0 +1,13 @@
+#dialog {
+  padding: 20px;
+
+  .dialog-actions {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      min-width: 100px;
+    }
+  }
+}

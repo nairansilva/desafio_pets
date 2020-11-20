@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="login-container">
+    <div class="center-login">
+      <img src='assets/images/logo.svg' alt="Pets" />
+    <h1>LogIn</h1>
+    <form>
+      <input type="email" placeholder="Email" required [(ngModel)]='email' name='email' />
+      <input type="password" placeholder="Deixar vazio" required />
+    </form>
+    <button class="primary" (click)="login()">LogIn</button>
+    <span>ou</span>
+    <button class="accent" (click)="login()">Cadastrar-se</button>
+    </div>
+  </div>
+  <div class="bg-container"></div>
+</div>

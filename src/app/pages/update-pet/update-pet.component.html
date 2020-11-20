@@ -1,0 +1,44 @@
+<div id="container">
+  <app-header></app-header>
+  <main class="content">
+    <div class="header-container">
+      <a routerLink="/pet">
+        <i class="material-icons">chevron_left</i>
+      </a>
+      <h1>Alterar Pet</h1>
+    </div>
+    <div class="create-content">
+      <form>
+        <mat-form-field>
+          <input matInput placeholder="Nome" required type="text" [(ngModel)]="pet.name" name="name" />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Apelido" required type="text" [(ngModel)]="pet.nickName" name="nickname" />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Raça" required type="text" [(ngModel)]="pet.breed" name="breed" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Espécie</mat-label>
+          <select matNativeControl [(ngModel)]="pet.species" name="species">
+            <option value="" selected>Selecione</option>
+            <option *ngFor="let spec of species" [value]="spec.value">
+              {{spec.name}}
+            </option>
+          </select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Dono</mat-label>
+          <select matNativeControl [(ngModel)]="pet.ownerId" name="owner">
+            <option value="" selected>Selecione</option>
+            <option *ngFor="let owner of owners" [value]="owner.id">
+              {{owner.name}}
+            </option>
+          </select>
+        </mat-form-field>
+      </form>
+      <button class="primary" (click)='updatePet()'>Alterar</button>
+    </div>
+  </main>
+</div>
+<app-footer></app-footer>

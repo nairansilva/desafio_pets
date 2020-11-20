@@ -1,0 +1,75 @@
+<div id="container">
+  <app-header></app-header>
+  <main class="content">
+    <div class="header-container">
+      <h1>Pets</h1>
+      <a routerLink="/pet/new" class="add-action">
+        <i class="material-icons">add</i>
+      </a>
+    </div>
+    <app-loading [loading]="isLoading"></app-loading>
+    <div class="table-container" *ngIf="!isLoading">
+      <table mat-table [dataSource]="pets">
+        <!-- Id Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>Id</th>
+          <td mat-cell *matCellDef="let pet">
+            <a routerLink="/pet/info/{{pet.id}}">{{pet.id}}</a>
+          </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Nome</th>
+          <td mat-cell *matCellDef="let pet">
+            <a routerLink="/pet/info/{{pet.id}}">{{pet.name}}</a>
+          </td>
+        </ng-container>
+
+        <!-- nickName Column -->
+        <ng-container matColumnDef="nickName">
+          <th mat-header-cell *matHeaderCellDef>Apelido</th>
+          <td mat-cell *matCellDef="let pet">
+            <a routerLink="/pet/info/{{pet.id}}">{{pet.nickName}}</a>
+          </td>
+        </ng-container>
+
+        <!-- breed Column -->
+        <ng-container matColumnDef="breed">
+          <th mat-header-cell *matHeaderCellDef>Raça</th>
+          <td mat-cell *matCellDef="let pet">
+            <a routerLink="/pet/info/{{pet.id}}">{{pet.breed}}</a>
+          </td>
+        </ng-container>
+
+        <!-- species Column -->
+        <ng-container matColumnDef="species">
+          <th mat-header-cell *matHeaderCellDef>Espécie</th>
+          <td mat-cell *matCellDef="let pet">
+            <a routerLink="/pet/info/{{pet.id}}">{{pet.species}}</a>
+          </td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>Ações</th>
+          <td mat-cell *matCellDef="let pet" class="actions">
+            <a routerLink="/pet/info/{{pet.id}}" class="detail-action">
+              <i class="material-icons">search</i>
+            </a>
+            <a routerLink="/pet/edit/{{pet.id}}" class="edit-action">
+              <i class="material-icons">edit</i>
+            </a>
+            <a (click)="confirmDialog(pet.id)" class="delete-action">
+              <i class="material-icons">delete</i>
+            </a>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let pet; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </main>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,67 @@
+<div id="container">
+  <app-header></app-header>
+  <main class="content">
+    <div class="header-container">
+      <div class="left">
+        <a routerLink="/owner">
+          <i class="material-icons">chevron_left</i>
+        </a>
+        <h1>Detalhes Dono</h1>
+      </div>
+      <a routerLink="/owner/edit/{{owner.id}}" class="edit-action">
+        <i class="material-icons">edit</i>
+      </a>
+    </div>
+    <div class="create-content">
+      <h3>Dono</h3>
+      <div class="owner-container">
+        <div class="column">
+          <p><span>Nome</span>{{owner.name}}</p>
+          <p><span>Email</span>{{owner.email}}</p>
+          <p><span>Telefone</span>{{owner.phone}}</p>
+        </div>
+        <div class="column">
+          <p><span>Data de nascimento</span>{{owner.birthday}}</p>
+          <p><span>Endereço</span>{{owner.address}}</p>
+        </div>
+      </div>
+      <h3>Pets</h3>
+      <ng-template #empty>
+        <br />
+        <p>Nenhum pet cadastrado, <a routerLink="/pet/new">Clique aqui</a> para cadastrar.</p>
+      </ng-template>
+      <div class="table-container" *ngIf="pets.length > 1; else empty">
+
+        <table mat-table [dataSource]="pets">
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Nome</th>
+            <td mat-cell *matCellDef="let pet">{{pet.name}}</td>
+          </ng-container>
+
+          <!-- nickName Column -->
+          <ng-container matColumnDef="nickName">
+            <th mat-header-cell *matHeaderCellDef>Apelido</th>
+            <td mat-cell *matCellDef="let pet">{{pet.nickName}}</td>
+          </ng-container>
+
+          <!-- breed Column -->
+          <ng-container matColumnDef="breed">
+            <th mat-header-cell *matHeaderCellDef>Raça</th>
+            <td mat-cell *matCellDef="let pet">{{pet.breed}}</td>
+          </ng-container>
+
+          <!-- species Column -->
+          <ng-container matColumnDef="species">
+            <th mat-header-cell *matHeaderCellDef>Espécie</th>
+            <td mat-cell *matCellDef="let pet">{{pet.species}}</td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let pet; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+<app-footer></app-footer>
