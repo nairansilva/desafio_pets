@@ -2,7 +2,7 @@
 <div class="container">
   <table class="table table-striped">
     <thead>
-      <tr>
+      <tr >
         <th scope="col">ID</th>
         <th scope="col">Nome</th>
         <th scope="col">Apelido</th>
@@ -15,54 +15,23 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
+      <tr *ngFor="let pets of petsInformation">
+        <th scope="row">{{pets.id}}</th>
+        <td>{{pets.name}}</td>
+        <td>{{pets.nickName}}</td>
+        <td>{{pets.species}}</td>
+        <td>{{pets.breed}}</td>
+        <td>  <a class="btn btn-outline-info" (click)="getOnePet(pets.id)">Informações </a>
+        <a class="btn btn-outline-warning">Atualizar</a> 
+        <a class="btn btn-outline-danger">Deletar</a> 
 
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-        <td>@fat</td>
-        <td>@mdo</td>
-
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-        <td>@twitter</td>
-        <td>@twitter</td>
-
+        </td>
 
 
       </tr>
-      <tr>
-        <th scope="row">4</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
 
 
-      </tr>
-      <tr>
-        <th scope="row">5</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
-
-      </tr>
+   
     </tbody>
   </table>
 </div>
