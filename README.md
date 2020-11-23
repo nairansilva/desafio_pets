@@ -7,7 +7,7 @@
 ## Run Project
 
 - ng serve 
-
+- does not contain authentication
 
 ## Setup do projeto
 
