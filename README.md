@@ -37,6 +37,3 @@
 
 
 
-Caso tenha alguma sugestão de melhoria, nos avise!
-
-Boa sorte! :blue_heart:
