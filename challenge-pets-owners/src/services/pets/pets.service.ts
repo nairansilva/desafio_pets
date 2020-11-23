@@ -20,7 +20,14 @@ export class PetsService {
   }
 
    getInfoPet(id: string): Observable<Pets[]> {
-    return this.http.get<Pets[]>(this.url + '/pets/' + id)
+    return this.http.get<Pets[]>(this.url + '/pets/' + id);
+  }
+
+  updateInfoPet(id: string, pet: Pets): Observable<Pets[]> {
+    return this.http.put<Pets[]>(this.url + '/pets/' + id, pet);
+  }
+  createPet( pet: Pets): Observable<Pets[]> {
+    return this.http.post<Pets[]>(this.url + '/pets/' , pet);
   }
 
 }

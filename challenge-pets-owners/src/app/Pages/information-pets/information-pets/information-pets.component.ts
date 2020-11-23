@@ -38,9 +38,14 @@ export class InformationPetsComponent implements OnInit {
   getOnePet(user: string) {
 
     this.petsservice.getInfoPet(user).subscribe((pets: Pet[]) => {
-    this.onlyInfo = pets
+    this.onlyInfo = pets;
     this.router.navigate(['/detail-pet'], {state: {data: this.onlyInfo, update: true}});
     console.log(this.onlyInfo)
     });
+}
+
+redictToCreate(){
+
+  this.router.navigate(["/create-pet"]);
 }
 }

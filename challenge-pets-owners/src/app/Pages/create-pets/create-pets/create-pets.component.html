@@ -1,0 +1,43 @@
+<form id="formExemplo" data-toggle="validator" role="form">
+  <div class="form-group">
+    <label for="textNome" class="control-label">Nome do Pet: </label>
+    <input id="textNome" class="form-control" [(ngModel)]="pets.name"  name="name"placeholder="Digite seu Nome..." type="text" required>
+  </div>
+  <div class="form-group">
+    <label for="textNome" class="control-label">Apelido do Pet: </label>
+    <input id="textNome" class="form-control" [(ngModel)]="pets.nickName"  name="nickname"placeholder="Digite o apelido..." type="text" required>
+  </div>
+  <div class="form-group">
+    <label for="sel1">Raça do Pet</label>
+  <select [(ngModel)]="pets.breed" name="breed"class="form-control" id="sel1">
+    <option>Yorshire</option>
+    <option>Shitzu</option>
+    <option>SRD</option>
+    <option>Golden</option>
+  </select>
+
+  </div>
+  <div class="form-group">
+    <label for="sel1">Espécie</label>
+  <select  [(ngModel)]="pets.species" name="species"class="form-control" id="sel1">
+    <option>Gato</option>
+    <option>Cachorro</option>
+
+  </select>
+
+  </div>
+  <div class="form-group">
+    <label for="textNome" [(ngModel)]="pets.ownerId" name="ownerId" class="control-label">Nome do Dono: </label>
+    <input id="textNome" class="form-control" placeholder="Digite o apelido..." type="text" required>
+  </div>
+  <div class="form-group">
+    <label for="textNome" [(ngModel)]="pets.telefoneDono" name="telefoneDono" class="control-label">Telefone do Pet: </label>
+    <input id="textNome" class="form-control" placeholder="Digite o apelido..." type="text" required>
+  </div>
+
+
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary" (click)='createOnePet()'>Criar</button>
+  </div>
+</form>

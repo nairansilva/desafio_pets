@@ -1,29 +1,36 @@
 <app-navbar></app-navbar>
+
 <div class="container">
+
   <table class="table table-striped">
+
     <thead>
-      <tr >
+      <tr>
         <th scope="col">ID</th>
         <th scope="col">Nome</th>
         <th scope="col">Apelido</th>
         <th scope="col">Espécie</th>
         <th scope="col">Raça</th>
+        <th scope="col">Dono</th>
+        <th scope="col">Telefone</th>
         <th scope="col">Ações</th>
-
 
 
       </tr>
     </thead>
     <tbody>
-      <tr >
+      <tr>
         <th scope="row">{{petsInfo.id}}</th>
         <td>{{petsInfo.name}}</td>
         <td>{{petsInfo.nickName}}</td>
         <td>{{petsInfo.species}}</td>
         <td>{{petsInfo.breed}}</td>
+        <td>{{petsInfo.ownerId}}</td>
+        <td>{{petsInfo.telefoneDono}}</td>
         <td>
-        <a class="btn btn-outline-warning">Atualizar</a>
-        <a class="btn btn-outline-danger">Deletar</a>
+          <a class="btn btn-outline-warning">Atualizar</a>
+          <a class="btn btn-outline-danger">Deletar</a>
+
 
         </td>
 
