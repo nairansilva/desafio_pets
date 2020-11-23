@@ -1,4 +1,6 @@
+import { OwnersService } from './../../../../services/owners/owners.service';
 import Pets from 'src/app/models/Pets';
+import Owners from 'src/app/models/Owners';
 import { Component, OnInit } from '@angular/core';
 import { PetsService } from '../../../../services/pets/pets.service';
 import { Router } from '@angular/router';
@@ -9,17 +11,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-pets.component.scss']
 })
 export class CreatePetsComponent implements OnInit {
-
+  owners: Owners[] = [];
   pets: Pets = new Pets();
-
-  constructor( private petsservice: PetsService , private router: Router) { }
+  constructor(private ownersService: OwnersService, private petsservice: PetsService, private router: Router) { }
 
   ngOnInit(): void {
+    this.listAllOwners();
   }
 
-  createOnePet(){
+  createOnePet() {
     this.petsservice.createPet(this.pets).subscribe(() => {
       console.log(this.pets)
+    });
+  }
+
+  listAllOwners() {
+    this.ownersService.getAllOwners().subscribe((owners: Owners[]) => {
+      this.owners = owners;
+    
     });
   }
 
