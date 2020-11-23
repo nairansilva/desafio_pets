@@ -18,7 +18,9 @@ const appRoutes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'information-pets', component: InformationPetsComponent },
     { path: 'detail-pet', component: DetailPetsComponent },
-    { path: 'create-pet', component: CreatePetsComponent }
+    { path: 'create-pet', component: CreatePetsComponent },
+    { path: 'update-pet', component: UpdatePetsComponent }
+
 
 
 

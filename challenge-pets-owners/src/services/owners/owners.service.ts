@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
-import Owners from 'src/app/models/Pets';
+import Owners from 'src/app/models/Owners';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,21 +13,21 @@ export class OwnersService {
   url: string = environment.baseUrl;
 
   getAllOwners(): Observable<Owners[]> {
-    return this.http.get<Owners[]>(this.url + '/pets');
+    return this.http.get<Owners[]>(this.url + '/owner');
   }
 
    getInfOwners(id: string): Observable<Owners[]> {
-    return this.http.get<Owners[]>(this.url + '/pets/' + id);
+    return this.http.get<Owners[]>(this.url + '/owner/' + id);
   }
 
-  updateInfOwner(id: string, pet: Owners): Observable<Owners[]> {
-    return this.http.put<Owners[]>(this.url + '/pets/' + id, pet);
+  updateInfOwner(id: string, owner: Owners): Observable<Owners[]> {
+    return this.http.put<Owners[]>(this.url + '/owner/' + id, owner);
   }
-  createOwner( pet: Owners): Observable<Owners[]> {
-    return this.http.post<Owners[]>(this.url + '/pets/' , pet);
+  createOwner( owner: Owners): Observable<Owners[]> {
+    return this.http.post<Owners[]>(this.url + '/owner/' , owner);
   }
-  getPetOwner(id: string, pet: Owners): Observable<Owners[]> {
-    return this.http.post<Owners[]>(this.url + '/owner/' + id  , pet);
+  getPetOwner(id: string, owner: Owners): Observable<Owners[]> {
+    return this.http.post<Owners[]>(this.url + '/owner/' + id  , owner);
   }
 
 }

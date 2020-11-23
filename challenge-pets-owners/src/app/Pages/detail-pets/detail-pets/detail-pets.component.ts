@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import hehe from '../../../models/Pets';
 
 @Component({
   selector: 'app-detail-pets',

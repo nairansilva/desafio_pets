@@ -1,4 +1,4 @@
-export class Owners {
+class Owners {
   id?: string;
   name!: string;
   email!: string;
@@ -8,3 +8,4 @@ export class Owners {
   nome!: string;
   telefone!: string;
 }
+export default Owners;

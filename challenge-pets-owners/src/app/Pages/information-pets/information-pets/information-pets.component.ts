@@ -17,9 +17,9 @@ export class InformationPetsComponent implements OnInit {
   user: any;
 
 
-  constructor(    private petsservice: PetsService , private router: Router ) {
+  constructor(private petsservice: PetsService, private router: Router) {
 
-   }
+  }
 
   ngOnInit(): void {
     this.getPets();
@@ -27,25 +27,41 @@ export class InformationPetsComponent implements OnInit {
   }
   getPets() {
     this.petsservice.getAllPets().subscribe((pets: Pet[]) => {
-    this.petsInformation = pets;
-    console.log(this.petsInformation);
+      this.petsInformation = pets;
+      console.log(this.petsInformation);
 
     });
 
 
-}
+  }
 
   getOnePet(user: string) {
 
     this.petsservice.getInfoPet(user).subscribe((pets: Pet[]) => {
-    this.onlyInfo = pets;
-    this.router.navigate(['/detail-pet'], {state: {data: this.onlyInfo, update: true}});
-    console.log(this.onlyInfo)
+      this.onlyInfo = pets;
+      this.router.navigate(['/detail-pet'], { state: { data: this.onlyInfo, update: true } });
+      console.log(this.onlyInfo)
     });
-}
+  }
 
-redictToCreate(){
+  redictToCreate() {
 
-  this.router.navigate(["/create-pet"]);
-}
+    this.router.navigate(["/create-pet"]);
+  }
+  updatePet(user: string){
+
+    this.petsservice.getInfoPet(user).subscribe((pets: Pet[]) => {
+      this.onlyInfo = pets;
+      this.router.navigate(['/update-pet'], { state: { data: this.onlyInfo, update: true } });
+      console.log(this.onlyInfo)
+    });
+  }
+  deleteOnePet(id: string){
+
+    this.petsservice.deletePet(id).subscribe((pets: Pet[]) => {
+      this.onlyInfo = pets;
+      window.location.reload();
+
+    });
+  }
 }

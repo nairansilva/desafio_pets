@@ -1,1 +1,51 @@
-<p>update-pets works!</p>
+<form id="formExemplo" data-toggle="validator" role="form">
+  <div class="form-group">
+    <label for="textNome" class="control-label">Nome do Pet: </label>
+    <input id="textNome" class="form-control" [(ngModel)]="pets.name" name="name" placeholder={{petsInfo.name}}
+      type="text" required>
+  </div>
+  <div class="form-group">
+    <label for="textNome" class="control-label">Apelido do Pet: </label>
+    <input id="textNome" class="form-control" [(ngModel)]="pets.nickName" name="nickname"
+    placeholder={{petsInfo.nickName}} type="text" required>
+  </div>
+  <div class="form-group">
+    <label for="sel1">Raça do Pet</label>
+    <select [(ngModel)]="pets.breed" name="breed" class="form-control" id="sel1">
+      <option value={{petsInfo.breed}} selected>{{petsInfo.breed}}</option>
+      <option>Yorshire</option>
+      <option>Shitzu</option>
+      <option>SRD</option>
+      <option>Golden</option>
+    </select>
+
+  </div>
+  <div class="form-group">
+    <label for="sel1">Espécie</label>
+    <select [(ngModel)]="pets.species" name="species" class="form-control" id="sel1">
+      <option>Gato</option>
+      <option>Cachorro</option>
+
+    </select>
+
+  </div>
+  <div class="form-group">
+    <label for="textNome" [(ngModel)]="pets.ownerId" name="ownerId" class="control-label">Nome do Dono: </label>
+    <select [(ngModel)]="pets.species" name="species" class="form-control" id="sel1">
+      <option *ngFor="let owner of owners" [value]="owner.id">
+
+        {{owner.name}}
+
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="textNome" [(ngModel)]="pets.telefoneDono" name="telefoneDono" class="control-label">Telefone do Pet:
+    </label>
+    <input id="textNome" class="form-control" placeholder={{petsInfo.telefoneDono}} type="text" required>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary" (click)='updatePet(petsInfo.id)'>Criar</button>
+  </div>
+</form>
+
