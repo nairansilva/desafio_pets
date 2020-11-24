@@ -1,9 +1,10 @@
-import {FormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Pages/Login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -13,8 +14,12 @@ import { UpdatePetsComponent } from './Pages/update-pets/update-pets.component';
 import { CreatePetsComponent } from './Pages/create-pets/create-pets/create-pets.component';
 import { CreateOwnersComponent } from './Pages/create-owners/create-owners/create-owners.component';
 import { InformationOwnersComponent } from './Pages/information-owners/information-owners/information-owners.component';
-import { MatSliderModule } from '@angular/material/slider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from "ngx-toastr";
+
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
@@ -36,17 +41,22 @@ const appRoutes: Routes = [
     DetailPetsComponent,
     UpdatePetsComponent,
     CreatePetsComponent,
-    InformationOwnersComponent
+    InformationOwnersComponent,
+    CreateOwnersComponent,
   ],
   imports: [
+    ToastrModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     BrowserModule,
-    FormsModule,
-    MatSliderModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatDialogModule,
+    ReactiveFormsModule
+
 
   ],
   providers: [],

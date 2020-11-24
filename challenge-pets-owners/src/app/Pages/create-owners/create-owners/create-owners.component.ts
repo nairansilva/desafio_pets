@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-owners.component.scss'],
 })
 export class CreateOwnersComponent implements OnInit {
-  owner: Owners = new Owners();
+  owners: Owners = new Owners();
 
   constructor(
     private ownersService: OwnersService,
@@ -20,9 +20,9 @@ export class CreateOwnersComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  createOneOwner(): void {
-    this.ownersService.createOwner(this.owner).subscribe(() => {
-      console.log(this.owner);
+  createOneOwner() {
+    this.ownersService.createOwner(this.owners).subscribe(() => {
+      console.log(this.owners);
     });
   }
 

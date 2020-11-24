@@ -1,7 +1,10 @@
+import  Owners  from 'src/app/models/Owners';
+import { OwnersService } from './../../../../services/owners/owners.service';
 import { Component, OnInit } from '@angular/core';
 import { PetsService } from '../../../../services/pets/pets.service';
 import { Router } from '@angular/router';
 import Pet from "../../../models/Pets";
+
 
 
 @Component({
@@ -13,16 +16,22 @@ export class InformationPetsComponent implements OnInit {
 
   pets: Pet[] = [];
   onlyInfo: any;
+  owners: Owners = new Owners;
   petsInformation: any;
   user: any;
+  resultOwners: any;
 
 
-  constructor(private petsservice: PetsService, private router: Router) {
+
+
+  alertParams!: object;
+  constructor(private petsservice: PetsService, private ownersService: OwnersService, private router: Router) {
 
   }
 
   ngOnInit(): void {
     this.getPets();
+
 
   }
   getPets() {
@@ -64,4 +73,5 @@ export class InformationPetsComponent implements OnInit {
 
     });
   }
+
 }

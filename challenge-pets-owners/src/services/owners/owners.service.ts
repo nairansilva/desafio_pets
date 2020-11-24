@@ -29,5 +29,8 @@ export class OwnersService {
   getPetOwner(id: string, owner: Owners): Observable<Owners[]> {
     return this.http.post<Owners[]>(this.url + '/owner/' + id  , owner);
   }
+  deleteOwner(id: string): Observable<Owners[]> {
+    return this.http.delete<Owners[]>(this.url + '/owner/' + id );
+  }
 
 }

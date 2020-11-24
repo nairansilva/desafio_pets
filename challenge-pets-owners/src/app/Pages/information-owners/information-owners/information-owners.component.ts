@@ -1,18 +1,18 @@
 import { OwnersService } from './../../../../services/owners/owners.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import Owners from "../../../models/Owners";
+import Owners from '../../../models/Owners';
 
 @Component({
   selector: 'app-information-owners',
   templateUrl: './information-owners.component.html',
-  styleUrls: ['./information-owners.component.scss']
+  styleUrls: ['./information-owners.component.scss'],
 })
 export class InformationOwnersComponent implements OnInit {
-
-  constructor(private ownersService: OwnersService, private router: Router) { }
+  constructor(private ownersService: OwnersService, private router: Router) {}
 
   ownersInformation: any;
+  onlyInfo: any;
 
   ngOnInit() {
     this.getOwners();
@@ -22,15 +22,26 @@ export class InformationOwnersComponent implements OnInit {
     this.ownersService.getAllOwners().subscribe((owners: Owners[]) => {
       this.ownersInformation = owners;
       console.log(this.ownersInformation);
-
     });
-
-
   }
 
-  redictToCreate(){
-    this.router.navigate(["/create-owners"]);
-
+  redictToCreate() {
+    this.router.navigate(['/create-owners']);
   }
 
+  updateOwner(user: string) {
+    this.ownersService.getInfOwners(user).subscribe((owners: Owners[]) => {
+      this.onlyInfo = owners;
+      this.router.navigate(['/update-user'], {
+        state: { data: this.onlyInfo, update: true },
+      });
+      console.log(this.onlyInfo);
+    });
+  }
+  deleteOneOwner(id: string) {
+    this.ownersService.deleteOwner(id).subscribe((owners: Owners[]) => {
+      this.onlyInfo = owners;
+      window.location.reload();
+    });
+  }
 }
