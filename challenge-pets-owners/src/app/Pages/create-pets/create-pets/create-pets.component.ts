@@ -3,7 +3,6 @@ import { OwnersService } from './../../../../services/owners/owners.service';
 import Pets from 'src/app/models/Pets';
 import { Component, OnInit } from '@angular/core';
 import { PetsService } from '../../../../services/pets/pets.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-pets',

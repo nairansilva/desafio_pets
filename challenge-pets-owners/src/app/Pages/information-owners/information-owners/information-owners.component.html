@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <table class="table table-striped">
+
+    <thead>
+      <tr >
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Telefone</th>
+
+
+
+
+      </tr>
+    </thead>
+    <button type="button" class="btn btn-primary" (click)="redictToCreate()">Criar Dono</button>
+<br>
+    <tbody>
+
+      <tr *ngFor="let owners of ownersInformation">
+        <th scope="row">{{owners.id}}</th>
+        <td>{{owners.nome}}</td>
+        <td>{{owners.email}}</td>
+        <td>{{owners.telefone}}</td>
+
+        <td>  <a class="btn btn-outline-info">Informações </a>
+        <a class="btn btn-outline-warning" >Atualizar</a>
+        <a class="btn btn-outline-danger" >Deletar</a>
+
+        </td>
+
+
+      </tr>
+
+
+
+    </tbody>
+  </table>
+</div>

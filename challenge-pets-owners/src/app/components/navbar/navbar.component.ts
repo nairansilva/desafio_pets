@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor( private router: Router) { }
 
   ngOnInit(): void {
   }
+  redirectOwner(){
+
+    this.router.navigate(["/information-owners"]);
+
+ }
+
+ redirectPet(){
+  this.router.navigate(["/information-pets"]);
+
+ }
+
 
 }

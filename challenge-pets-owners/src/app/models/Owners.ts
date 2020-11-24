@@ -5,7 +5,5 @@ class Owners {
   phone!: string;
   address!: string;
   birthday!: number;
-  nome!: string;
-  telefone!: string;
 }
 export default Owners;
