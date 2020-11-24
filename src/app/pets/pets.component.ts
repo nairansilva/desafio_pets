@@ -23,7 +23,6 @@ export class PetsComponent implements OnInit {
   }
 
   getPetInfo(): void {
-    console.log('ATUALIZA LISTA')
     this.petsService.get().subscribe(
       value => {
         this.petsList = value;

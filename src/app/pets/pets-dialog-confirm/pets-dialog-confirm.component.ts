@@ -8,7 +8,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class PetsDialogConfirmComponent implements OnInit {
 
-  constructor(private dialogRef: MatDialogRef<PetsDialogConfirmComponent>,) { }
+  constructor(private dialogRef: MatDialogRef<PetsDialogConfirmComponent>) { }
 
   ngOnInit() {
   }

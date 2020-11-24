@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PetsComponent } from './pets.component';
 import { PetsCardComponent } from './pets-card/pets-card.component';
 import { PetsDialogInfoComponent } from './pets-dialog-info/pets-dialog-info.component';
+import { PetsDialogConfirmComponent } from './pets-dialog-confirm/pets-dialog-confirm.component';
 import { PetsRoutingModule } from './pets-routing.module';
 import { PetsService } from './../services/pets.service';
 
@@ -27,6 +28,7 @@ import { PetsService } from './../services/pets.service';
   declarations: [
     PetsComponent,
     PetsCardComponent,
+    PetsDialogConfirmComponent,
     PetsDialogInfoComponent
   ],
   providers: [PetsService]

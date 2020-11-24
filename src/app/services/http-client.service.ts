@@ -27,6 +27,14 @@ export class HttpClientService {
             );
     }
 
+    getOwnerPets<T>(path: string, id: number): Observable<T> {
+        const url = this.baseUrl + path + '/' + id + '/pets';
+        return this.http.get<T>(url)
+            .pipe(
+                catchError(error => throwError(error))
+            );
+    }
+
     getPets<T>(path: string, idOwner: string): Observable<T> {
         const url = this.baseUrl + path + '/' + idOwner + '/pets';
         return this.http.get<T>(url)

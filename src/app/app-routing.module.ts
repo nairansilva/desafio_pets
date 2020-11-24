@@ -2,9 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+    // {
+    //     path: '',
+    //     loadChildren: () => import('./pets/pets.module').then(m => m.PetsModule)
+    // },
     {
         path: '',
-        loadChildren: () => import('./pets/pets.module').then(m => m.PetsModule)
+        loadChildren: () => import('./owner/owner.module').then(m => m.OwnerModule)
     }
 ];
 

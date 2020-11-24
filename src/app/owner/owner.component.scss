@@ -4,7 +4,11 @@
     align-items: center;
 }
 
-.pet-list {
+.mat-raised-button {
+    height: 40px;
+}
+
+.owner-list {
     display: flex;
     flex-wrap: wrap;
 }

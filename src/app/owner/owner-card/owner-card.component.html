@@ -1,0 +1,36 @@
+<mat-card class="card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image">
+    </div>
+    <mat-card-title>{{ownerInfo.name}}</mat-card-title>
+  </mat-card-header>
+  <div class="user-picture">
+  </div>
+  <mat-card-content class="description">
+    <div>
+      <mat-icon class="icon" aria-hidden="false" aria-label="Name">person</mat-icon>
+      <mat-form-field appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input matInput value="{{ownerInfo.name}}">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-icon class="icon" aria-hidden="false" aria-label="Email">location_on</mat-icon>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput value="{{ownerInfo.email}}">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-icon class="icon" aria-hidden="false" aria-label="Phone">phone</mat-icon>
+      <mat-form-field appearance="fill">
+        <mat-label>Telefone</mat-label>
+        <input matInput value="{{ownerInfo.phone}}">
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+  <mat-card-actions class="card-actions">
+    <button mat-raised-button (click)="edit()">Editar</button>
+    <button mat-raised-button color="warn" (click)="delete()">Excluir</button>
+  </mat-card-actions>
+</mat-card>

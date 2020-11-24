@@ -1,0 +1,10 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+}
+
+.card-actions {
+    display: flex;
+    flex-direction: row-reverse;
+}

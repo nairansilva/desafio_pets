@@ -1,0 +1,11 @@
+<div class="header">
+  <h1>
+    Lista de Donos
+  </h1>
+  <button mat-raised-button (click)="onAddOwner()">Adicionar Dono</button>
+</div>
+<div class="owner-list">
+  <ng-container *ngFor="let owner of ownerList">
+    <app-owner-card [ownerInfo]="owner" (ownerEmitter)="getOwnerInfo()"></app-owner-card>
+  </ng-container>
+</div>

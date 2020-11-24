@@ -1,31 +1,32 @@
 import { Component, OnInit, Inject } from '@angular/core';
+
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { Pet } from './../../model/pet.model';
-import { PetsService } from './../../services/pets.service';
+import { Owner } from './../../model/owner.model';
+import { OwnerService } from './../../services/owner.service';
 
 import * as uuid from 'uuid';
 
 @Component({
-  selector: 'app-pets-dialog-info',
-  templateUrl: './pets-dialog-info.component.html',
-  styleUrls: ['./pets-dialog-info.component.scss']
+  selector: 'app-owner-dialog-info',
+  templateUrl: './owner-dialog-info.component.html',
+  styleUrls: ['./owner-dialog-info.component.scss']
 })
-export class PetsDialogInfoComponent implements OnInit {
+export class OwnerDialogInfoComponent implements OnInit {
 
   formGroup: FormGroup;
-  isNewPet = true;
+  isNewOwner = true;
 
   constructor(
     private fb: FormBuilder,
-    private petsService: PetsService,
-    private dialogRef: MatDialogRef<PetsDialogInfoComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Pet
-    ) { }
+    private ownerService: OwnerService,
+    private dialogRef: MatDialogRef<OwnerDialogInfoComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Owner
+  ) { }
 
   ngOnInit() {
     if (this.data) {
-      this.isNewPet = false;
+      this.isNewOwner = false;
     };
     this.createFormGroup();
   }
@@ -34,9 +35,8 @@ export class PetsDialogInfoComponent implements OnInit {
     this.formGroup = this.fb.group({
       id: [this.data?.id || uuid.v4()],
       name: [this.data?.name || null, [Validators.required]],
-      breed: [this.data?.breed || null, [Validators.required]],
-      species: [this.data?.species || null, [Validators.required]],
-      telefoneDono: [null, [Validators.required]],
+      email: [null, [Validators.required]],
+      phone: [null, [Validators.required]],
     });
   }
 
@@ -45,7 +45,7 @@ export class PetsDialogInfoComponent implements OnInit {
   }
 
   onSubmitClick(): void {
-    if (this.isNewPet) {
+    if (this.isNewOwner) {
       this.postRequest();
     } else {
       this.putRequest();
@@ -53,7 +53,7 @@ export class PetsDialogInfoComponent implements OnInit {
   }
 
   postRequest(): void {
-    this.petsService.post(this.formGroup.value.id, this.formGroup.value).subscribe(
+    this.ownerService.post(this.formGroup.value.id, this.formGroup.value).subscribe(
       value => {
         console.log('POST SUCCESS', value);
         this.dialogRef.close(true);
@@ -62,7 +62,7 @@ export class PetsDialogInfoComponent implements OnInit {
   }
 
   putRequest(): void {
-    this.petsService.put(this.formGroup.value.id, this.formGroup.value).subscribe(
+    this.ownerService.put(this.formGroup.value.id, this.formGroup.value).subscribe(
       value => {
         console.log('PUT SUCCESS', value);
         this.dialogRef.close(true);
