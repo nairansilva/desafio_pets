@@ -1,4 +1,4 @@
-# Controle de Pets e Donos 
+# Management of pets and owners
 
 ![Alt Text](https://media.giphy.com/media/Endx3eMpqmpZ6/giphy.gif)
 
