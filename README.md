@@ -35,5 +35,5 @@
 
 #
 
-
+*CRUD realizado, mas ficou pendente validações, autenticação e ajuste do css/html*
 
