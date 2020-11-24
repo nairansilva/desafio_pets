@@ -24,8 +24,8 @@
         <td>{{owners.email}}</td>
         <td>{{owners.phome}}</td>
 
-        <td>  <a class="btn btn-outline-info">Informações </a>
-        <a class="btn btn-outline-warning" >Atualizar</a>
+        <td>  <a class="btn btn-outline-info" (click)="getOneOwner(owners.id)">Informações </a>
+        <a class="btn btn-outline-warning" (click)="updateOwner(owners.id)">Atualizar</a>
         <a class="btn btn-outline-danger" (click)="deleteOneOwner(owners.id)">Deletar</a>
 
         </td>

@@ -13,6 +13,8 @@ export class InformationOwnersComponent implements OnInit {
 
   ownersInformation: any;
   onlyInfo: any;
+  owners: Owners[] = [];
+
 
   ngOnInit() {
     this.getOwners();
@@ -32,10 +34,11 @@ export class InformationOwnersComponent implements OnInit {
   updateOwner(user: string) {
     this.ownersService.getInfOwners(user).subscribe((owners: Owners[]) => {
       this.onlyInfo = owners;
-      this.router.navigate(['/update-user'], {
+      this.router.navigate(['/update-owners'], {
         state: { data: this.onlyInfo, update: true },
       });
       console.log(this.onlyInfo);
+
     });
   }
   deleteOneOwner(id: string) {
@@ -44,4 +47,13 @@ export class InformationOwnersComponent implements OnInit {
       window.location.reload();
     });
   }
+  getOneOwner(user: string) {
+
+    this.ownersService.getInfOwners(user).subscribe((owners: Owners[]) => {
+      this.onlyInfo = owners;
+      this.router.navigate(['/detail-owners'], { state: { data: this.onlyInfo, update: true } });
+      console.log(this.onlyInfo);
+    });
+  }
 }
+

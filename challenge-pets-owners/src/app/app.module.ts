@@ -11,9 +11,11 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { InformationPetsComponent } from './Pages/information-pets/information-pets/information-pets.component';
 import { DetailPetsComponent } from './Pages/detail-pets/detail-pets/detail-pets.component';
 import { UpdatePetsComponent } from './Pages/update-pets/update-pets.component';
+import { UpdateOwnersComponent } from './Pages/update-owners/update-owners.component';
 import { CreatePetsComponent } from './Pages/create-pets/create-pets/create-pets.component';
 import { CreateOwnersComponent } from './Pages/create-owners/create-owners/create-owners.component';
 import { InformationOwnersComponent } from './Pages/information-owners/information-owners/information-owners.component';
+import { DetailOwnersComponent } from './Pages/detail-owners/detail-owners.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from "ngx-toastr";
 
@@ -28,7 +30,11 @@ const appRoutes: Routes = [
   { path: 'create-pet', component: CreatePetsComponent },
   { path: 'update-pet', component: UpdatePetsComponent },
   { path: 'information-owners', component: InformationOwnersComponent },
-  { path: 'create-owners', component: CreateOwnersComponent }
+  { path: 'create-owners', component: CreateOwnersComponent },
+  { path: 'update-owners', component: UpdateOwnersComponent },
+  { path: 'detail-owners', component: DetailOwnersComponent }
+
+
 
 ];
 
@@ -43,6 +49,8 @@ const appRoutes: Routes = [
     CreatePetsComponent,
     InformationOwnersComponent,
     CreateOwnersComponent,
+    UpdateOwnersComponent,
+    DetailOwnersComponent
   ],
   imports: [
     ToastrModule.forRoot(),

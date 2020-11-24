@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+
+  <table class="table table-striped">
+
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Email</th>
+        <th scope="col">Telefone</th>
+        <th scope="col">Ações</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{ownersInfo.id}}</th>
+        <td>{{ownersInfo.name}}</td>
+        <td>{{ownersInfo.email}}</td>
+        <td>{{ownersInfo.telefone}}</td>
+        <td>{{ownersInfo.telefoneDono}}</td>
+        <td>
+          <a class="btn btn-outline-warning">Atualizar</a>
+          <a class="btn btn-outline-danger">Deletar</a>
+
+
+        </td>
+
+
+      </tr>
+
+
+
+    </tbody>
+  </table>
+</div>
