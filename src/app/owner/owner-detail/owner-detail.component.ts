@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { OwnerService } from 'src/app/services/owner.service';
+import { OwnerService } from './../../services/owner.service';
 
 import { Owner } from './../../model/owner.model';
 import { Pet } from './../../model/pet.model';

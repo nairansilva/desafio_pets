@@ -1,27 +1,16 @@
-# Desafio
+# Desafio Pets
+Projeto criado para testar conhecimento técnico. O objetivo é criar um sistema seguindo as seguintes [especificações](https://github.com/nairansilva/desafio_pets).
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.0.
+# Rodar o projeto
 
-## Development server
+* 1) Instalar as dependencias com o comando: **npm i**
+* 2) Rodar o projeto com o comando **npm start**
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Link do projeto rodando no StackBlitz
 
-## Code scaffolding
+* Edição: https://stackblitz.com/edit/desafio-pets?file=README.md
+* Visualização: https://desafio-pets.stackblitz.io
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Link Github do projeto
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+https://github.com/FelipeKusuki/desafio_pets

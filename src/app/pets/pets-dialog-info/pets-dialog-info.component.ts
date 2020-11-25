@@ -4,8 +4,8 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { PetsService } from './../../services/pets.service';
 import { PetsDialogConfirmComponent } from '../pets-dialog-confirm/pets-dialog-confirm.component';
 import { Pet } from './../../model/pet.model';
-import { Owner } from 'src/app/model/owner.model';
-import { OwnerService } from 'src/app/services/owner.service';
+import { Owner } from './../../model/owner.model';
+import { OwnerService } from './../../services/owner.service';
 
 @Component({
   selector: 'app-pets-dialog-info',

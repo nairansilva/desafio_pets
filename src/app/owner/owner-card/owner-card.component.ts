@@ -5,7 +5,7 @@ import { Owner } from './../../model/owner.model';
 import { OwnerDialogInfoComponent } from './../owner-dialog-info/owner-dialog-info.component';
 import { OwnerDialogConfirmComponent } from './../owner-dialog-confirm/owner-dialog-confirm.component';
 import { OwnerDetailComponent } from '../owner-detail/owner-detail.component';
-import { OwnerService } from 'src/app/services/owner.service';
+import { OwnerService } from './../../services/owner.service';
 
 @Component({
   selector: 'app-owner-card',

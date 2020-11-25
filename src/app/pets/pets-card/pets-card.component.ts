@@ -5,7 +5,7 @@ import { Pet } from './../../model/pet.model';
 import { PetsDialogInfoComponent } from './../pets-dialog-info/pets-dialog-info.component';
 import { PetsDialogConfirmComponent } from './../pets-dialog-confirm/pets-dialog-confirm.component';
 import { PetsDetailComponent } from '../pets-detail/pets-detail.component';
-import { PetsService } from 'src/app/services/pets.service';
+import { PetsService } from './../../services/pets.service';
 
 @Component({
   selector: 'app-pets-card',
