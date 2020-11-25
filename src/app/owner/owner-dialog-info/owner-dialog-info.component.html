@@ -4,19 +4,21 @@
     <mat-form-field appearance="fill">
       <mat-label>Nome</mat-label>
       <input matInput formControlName="name" value="{{data?.name}}">
+      <mat-error> Nome inválido </mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>E-mail</mat-label>
       <input matInput formControlName="email" value="{{data?.email}}">
+      <mat-error> E-mail inválido </mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Telefone</mat-label>
-      <input matInput formControlName="phone" value="{{data?.phone}}">
+      <input matInput formControlName="phone" mask="(00) 0000-0000" value="{{data?.phone}}">
+      <mat-error> Telefone inválido </mat-error>
     </mat-form-field>
   </form>
 </div>
 <div mat-dialog-actions  class="card-actions">
-  <!-- Colocar [disabled]="!formGroup.valid" para so abilitar o botao com form preenchido -->
-  <button mat-raised-button type="submit" (click)="onSubmitClick()">Ok</button>
-  <button mat-raised-button color="warn" (click)="onNoClick()">No Thanks</button>
+  <button mat-raised-button color="primary" type="submit" [disabled]="!formGroup.valid" (click)="onSubmitClick()">Ok</button>
+  <button mat-raised-button color="warn" (click)="onNoClick()">Cancelar</button>
 </div>

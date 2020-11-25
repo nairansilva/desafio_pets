@@ -1,0 +1,57 @@
+<h2 mat-dialog-title>Detalhes Dono</h2>
+<mat-dialog-content class="mat-typography">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Informações Dono
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-form-field appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input matInput value="{{data.name}}" readonly>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>E-mail</mat-label>
+        <input matInput value="{{data.email}}" readonly>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Telefone</mat-label>
+        <input matInput value="{{data.phone}}"  mask="(00) 0000-0000" readonly>
+      </mat-form-field>
+    </mat-expansion-panel>
+
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Informações Pets desse Dono
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <ng-container *ngFor="let pet of petsInfoList">
+        <mat-divider></mat-divider>
+        <mat-form-field appearance="fill">
+          <mat-label>Nome</mat-label>
+          <input matInput value="{{pet.name}}" readonly>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Apelido</mat-label>
+          <input matInput value="{{pet.nickName}}" readonly>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Raça</mat-label>
+          <input matInput value="{{pet.breed}}" readonly>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Especie</mat-label>
+          <input matInput value="{{pet.species}}" readonly>
+        </mat-form-field>        
+    </ng-container>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" mat-dialog-close>Fechar</button>
+</mat-dialog-actions>

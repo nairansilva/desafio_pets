@@ -3,7 +3,7 @@
     <span> Desafio Pets </span>
   </div>
   <div class="menuList">
-    <div class="menu" *ngFor="let menu of menuList">{{menu}}</div>
+    <div class="menu" *ngFor="let menu of menuList" (click)="onClick(menu.path)">{{menu.name}}</div>
   </div>
 </div>
 <div class="page-template">

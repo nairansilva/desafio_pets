@@ -1,0 +1,55 @@
+<h2 mat-dialog-title>Detalhes Pets</h2>
+<mat-dialog-content class="mat-typography">
+  <mat-accordion>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Informações Pet
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Nome</mat-label>
+          <input matInput value="{{data.name}}" readonly>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Apelido</mat-label>
+          <input matInput value="{{data.nickName}}" readonly>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Raça</mat-label>
+          <input matInput value="{{data.breed}}" readonly>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Especie</mat-label>
+          <input matInput value="{{data.species}}" readonly>
+        </mat-form-field>   
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Informações Dono
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-form-field appearance="fill">
+          <mat-label>Nome</mat-label>
+          <input matInput value="{{ownerInfo?.name}}" readonly>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>E-mail</mat-label>
+          <input matInput value="{{ownerInfo?.email}}" readonly>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Telefone</mat-label>
+          <input matInput value="{{ownerInfo?.phone}}"  mask="(00) 0000-0000" readonly>
+        </mat-form-field>
+      </mat-expansion-panel>
+
+    
+  </mat-accordion>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" mat-dialog-close>Fechar</button>
+</mat-dialog-actions>

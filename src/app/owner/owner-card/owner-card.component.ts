@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Owner } from './../../model/owner.model';
 import { OwnerDialogInfoComponent } from './../owner-dialog-info/owner-dialog-info.component';
 import { OwnerDialogConfirmComponent } from './../owner-dialog-confirm/owner-dialog-confirm.component';
+import { OwnerDetailComponent } from '../owner-detail/owner-detail.component';
 import { OwnerService } from 'src/app/services/owner.service';
 
 @Component({
@@ -52,6 +53,17 @@ export class OwnerCardComponent implements OnInit {
         console.log('DELETE SUCCESS', value);
       }
     );
+  }
+
+  detail(): void {
+    const dialogRef = this.dialog.open(OwnerDetailComponent, {
+      data: this.ownerInfo
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('FECHOU DETALHES')
+      }
+    });
   }
 
 }

@@ -7,4 +7,5 @@
 .card-actions {
     display: flex;
     flex-direction: row-reverse;
+    place-content: space-between;
 }

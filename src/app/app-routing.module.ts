@@ -2,14 +2,18 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-    // {
-    //     path: '',
-    //     loadChildren: () => import('./pets/pets.module').then(m => m.PetsModule)
-    // },
+    {
+        path: 'pets',
+        loadChildren: () => import('./pets/pets.module').then(m => m.PetsModule)
+    },
+    {
+        path: 'owner',
+        loadChildren: () => import('./owner/owner.module').then(m => m.OwnerModule)
+    },
     {
         path: '',
-        loadChildren: () => import('./owner/owner.module').then(m => m.OwnerModule)
-    }
+        loadChildren: () => import('./pets/pets.module').then(m => m.PetsModule)
+    },
 ];
 
 @NgModule({

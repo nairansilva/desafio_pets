@@ -12,33 +12,27 @@
       <mat-icon class="icon" aria-hidden="false" aria-label="Example home icon">location_on</mat-icon>
       <mat-form-field appearance="fill">
         <mat-label>Raça</mat-label>
-        <input matInput value="{{petInfo.breed}}">
+        <input matInput value="{{petInfo.breed}}" readonly>
       </mat-form-field>
     </div>
     <div>
       <mat-icon class="icon" aria-hidden="false" aria-label="Example home icon">location_on</mat-icon>
       <mat-form-field appearance="fill">
         <mat-label>Especie</mat-label>
-        <input matInput value="{{petInfo.species}}">
+        <input matInput value="{{petInfo.species}}" readonly>
       </mat-form-field>
     </div>
     <div>
       <mat-icon class="icon" aria-hidden="false" aria-label="Example home icon">person</mat-icon>
       <mat-form-field appearance="fill">
         <mat-label>Nome do Dono</mat-label>
-        <input matInput value="{{petInfo.name}}">
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-icon class="icon" aria-hidden="false" aria-label="Example home icon">phone</mat-icon>
-      <mat-form-field appearance="fill">
-        <mat-label>Telefone do Dono</mat-label>
-        <input matInput value="{{petInfo.telefoneDono}}">
+        <input matInput value="{{petInfo.name}}" readonly>
       </mat-form-field>
     </div>
   </mat-card-content>
   <mat-card-actions class="card-actions">
-    <button mat-raised-button (click)="edit()">Editar</button>
+    <button mat-raised-button color="primary" (click)="edit()">Editar</button>
     <button mat-raised-button color="warn" (click)="delete()">Excluir</button>
+    <button mat-raised-button (click)="detail()">Detalhes +</button>
   </mat-card-actions>
 </mat-card>

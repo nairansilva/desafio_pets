@@ -18,7 +18,7 @@ export class OwnerService {
     }
 
     public getOwnerPets(id: number): any {
-        return this.httpClientService.getById(this.path, id);
+        return this.httpClientService.getOwnerPets(this.path, id);
     }
 
     public post(id: number, obj: any): any {
