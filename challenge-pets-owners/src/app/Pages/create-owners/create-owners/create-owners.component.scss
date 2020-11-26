@@ -1,10 +1,23 @@
 
-.container-form {
+.container{
   display: flex;
-  padding-top: 5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 2%;
+  form{
+    width: 50%;
+  }
+
+  input[type=text] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
 }
 
-.btn{
-  width: 8rem;
-  background-color: #FF2F5D;
+select {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #000000;
 }
+}
+
