@@ -1,9 +1,15 @@
 <app-navbar></app-navbar>
+<br>
 <div class="container">
+  <button type="button" class="btn btn-primary" (click)="redictToCreate()">Adicionar Pet</button>
+
+<br>
+<br>
+
   <table class="table table-striped">
 
     <thead>
-      <tr >
+      <tr>
         <th scope="col">ID</th>
         <th scope="col">Nome</th>
         <th scope="col">Apelido</th>
@@ -15,8 +21,8 @@
 
       </tr>
     </thead>
-    <button type="button" class="btn btn-primary" (click)="redictToCreate()">Criar Pet</button>
-<br>
+
+
     <tbody>
 
       <tr *ngFor="let pets of petsInformation">
@@ -26,9 +32,10 @@
         <td>{{pets.species}}</td>
         <td>{{pets.breed}}</td>
 
-        <td>  <a class="btn btn-outline-info" (click)="getOnePet(pets.id)">Informações </a>
-        <a class="btn btn-outline-warning"  (click)="updatePet(pets.id)">Atualizar</a>
-        <a class="btn btn-outline-danger" (click)="deleteOnePet(pets.id)">Deletar</a>
+        <td> <a class="btn btn-outline-info" (click)="getOnePet(pets.id)">Informações </a>
+
+          <a class="btn btn-outline-warning" (click)="updatePet(pets.id)">Atualizar</a>
+          <a class="btn btn-outline-danger" (click)="deleteOnePet(pets.id)">Deletar</a>
 
         </td>
 
@@ -38,6 +45,6 @@
 
 
     </tbody>
-   
+
   </table>
 </div>

@@ -6,7 +6,7 @@
 <div class="col-sm-12 col-md-4 col-md-offset-0">
 <form>
   <div class="form-group">
-    <h1> Cadastrar Dono</h1>
+    <h1> Atualizar Dados </h1>
 
     <label for="exampleInputPassword1">Nome</label>
     <input type="name" class="form-control" [(ngModel)]="owners.name" name="name" placeholder={{ownersInfo.name}}>
@@ -23,7 +23,7 @@
     <label for="exampleInputPassword1">Telefone</label>
     <input type="phone" class="form-control" [(ngModel)]="owners.phone" name="phone" placeholder={{ownersInfo.phone}}>
   </div>
-  <button type="submit" class="btn btn-success" (click)='updateOneOwner()'>Atualizar  </button>
+  <button type="submit" class="btn btn-success" (click)='updateOneOwner(ownersInfo.id)'>Atualizar  </button>
 </form>
 </div>
 <div class="col-sm-12 col-md-4"></div>
