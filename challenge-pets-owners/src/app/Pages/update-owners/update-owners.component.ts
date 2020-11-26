@@ -29,7 +29,6 @@ export class UpdateOwnersComponent implements OnInit {
   updateOneOwner(id: string) {
     this.ownersService.updateInfOwner(id, this.owners).subscribe(() => {
       console.log('update', this.owners);
-      window.location.reload();
 
     });
   }

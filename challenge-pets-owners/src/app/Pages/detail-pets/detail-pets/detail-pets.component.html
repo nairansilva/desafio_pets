@@ -36,8 +36,19 @@
 
 
       </tr>
-
-
+      <br>
+      <h1> Dono </h1>
+      <div class="owner-container" *ngIf="owner;">
+        <div class="column">
+          <p><span>Nome: </span>{{owner.name}}</p>
+          <p><span>Email: </span>{{owner.email}}</p>
+          <p><span>Telefone: </span>{{owner.phone}}</p>
+        </div>
+        <div class="column">
+          <p><span>Data de nascimento: </span>{{owner.birthday}}</p>
+          <p><span>Endereço: </span>{{owner.address}}</p>
+        </div>
+      </div>
 
     </tbody>
   </table>
