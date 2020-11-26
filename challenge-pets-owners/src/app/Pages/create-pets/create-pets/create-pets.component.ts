@@ -24,12 +24,15 @@ export class CreatePetsComponent implements OnInit {
   createOnePet() {
     this.petsservice.createPet(this.pets).subscribe(() => {
       console.log(this.pets);
+      window.location.reload();
+
     });
   }
 
   listAllOwners() {
     this.ownersService.getAllOwners().subscribe(owners => {
-      owners = owners;
+      console.log(owners)
+      this.owners = owners;
     });
   }
 }
