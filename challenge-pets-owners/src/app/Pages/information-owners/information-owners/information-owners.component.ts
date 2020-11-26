@@ -23,7 +23,6 @@ export class InformationOwnersComponent implements OnInit {
   getOwners() {
     this.ownersService.getAllOwners().subscribe((owners: Owners[]) => {
       this.ownersInformation = owners;
-      console.log(this.ownersInformation);
     });
   }
 
@@ -37,7 +36,6 @@ export class InformationOwnersComponent implements OnInit {
       this.router.navigate(['/update-owners'], {
         state: { data: this.onlyInfo, update: true },
       });
-      console.log(this.onlyInfo);
 
     });
   }
@@ -52,7 +50,6 @@ export class InformationOwnersComponent implements OnInit {
     this.ownersService.getInfOwners(user).subscribe((owners: Owners[]) => {
       this.onlyInfo = owners;
       this.router.navigate(['/detail-owners'], { state: { data: this.onlyInfo, update: true } });
-      console.log(this.onlyInfo);
     });
   }
 }

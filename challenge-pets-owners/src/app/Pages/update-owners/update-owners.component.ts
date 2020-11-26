@@ -24,11 +24,9 @@ export class UpdateOwnersComponent implements OnInit {
   ngOnInit() {
 
     this.ownersInfo = history.state.data;
-    console.log('petsinfo', this.ownersInfo);
   }
   updateOneOwner(id: string) {
     this.ownersService.updateInfOwner(id, this.owners).subscribe(() => {
-      console.log('update', this.owners);
 
     });
   }

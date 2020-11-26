@@ -22,7 +22,6 @@ export class CreateOwnersComponent implements OnInit {
 
   createOneOwner() {
     this.ownersService.createOwner(this.owners).subscribe(() => {
-      console.log(this.owners);
     });
   }
 

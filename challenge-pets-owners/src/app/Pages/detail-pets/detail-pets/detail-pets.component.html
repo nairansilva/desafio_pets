@@ -28,8 +28,8 @@
         <td>{{petsInfo.ownerId}}</td>
         <td>{{petsInfo.telefoneDono}}</td>
         <td>
-          <a class="btn btn-outline-warning">Atualizar</a>
-          <a class="btn btn-outline-danger">Deletar</a>
+          <a class="btn btn-outline-warning" (click)="updatePet(petsInfo.id)">Atualizar</a>
+          <a class="btn btn-outline-danger"(click)="deleteOnePet(petsInfo.id)">Deletar</a>
 
 
         </td>

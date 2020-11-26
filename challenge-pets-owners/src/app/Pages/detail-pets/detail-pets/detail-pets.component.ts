@@ -1,9 +1,12 @@
-import Owners from 'src/app/models/Owners';
-import { OwnersService } from 'src/services/owners/owners.service';
-import Pets from 'src/app/models/Pets';
+import  Owners  from 'src/app/models/Owners';
+import { OwnersService } from './../../../../services/owners/owners.service';
 import { Component, OnInit } from '@angular/core';
-import { PetsService } from 'src/services/pets/pets.service';
+import { PetsService } from '../../../../services/pets/pets.service';
 import { Router } from '@angular/router';
+import Pet from "../../../models/Pets";
+
+
+
 @Component({
   selector: 'app-detail-pets',
   templateUrl: './detail-pets.component.html',
@@ -16,6 +19,11 @@ export class DetailPetsComponent implements OnInit {
   petsInfo: any;
   pets: any;
   owner: any;
+  onlyInfo: any;
+  owners: Owners = new Owners;
+  petsInformation: any;
+  user: any;
+  resultOwners: any;
 
 
   constructor(private router: Router,     private ownersService: OwnersService,
@@ -32,6 +40,22 @@ export class DetailPetsComponent implements OnInit {
       });
     });
 
+  }
+
+  updatePet(user: string){
+
+    this.petsservice.getInfoPet(user).subscribe((pets: Pet[]) => {
+      this.onlyInfo = pets;
+      this.router.navigate(['/update-pet'], { state: { data: this.onlyInfo, update: true } });
+    });
+  }
+  deleteOnePet(id: string){
+
+    this.petsservice.deletePet(id).subscribe((pets: Pet[]) => {
+      this.onlyInfo = pets;
+      window.location.reload();
+
+    });
   }
 
 }

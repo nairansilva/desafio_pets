@@ -28,12 +28,10 @@ export class UpdatePetsComponent implements OnInit {
       this.owners = owners;
     });
     this.petsInfo = history.state.data;
-    console.log('petsinfo', this.petsInfo);
   }
 
   updatePet(id: string) {
     this.petsservice.updateInfoPet(id, this.pets).subscribe(() => {
-      console.log('update', this.pets);
       window.location.reload();
 
     });

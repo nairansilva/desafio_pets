@@ -16,7 +16,6 @@ export class DetailOwnersComponent implements OnInit {
 
   ngOnInit() {
     this.ownersInfo = history.state.data;
-    console.log(this.ownersInfo)
   }
 
 }
