@@ -1,0 +1,66 @@
+.page-login {
+  overflow: hidden;
+
+  .sidenav {
+    width: 50px;
+    background: url("../../../assets/background/woman-background.svg") no-repeat center;
+    background-size: 100% 150%;
+    height: 100%;
+
+  }
+
+
+  .main {
+    padding: 0px 10px;
+  }
+
+  @media screen and (max-height: 450px) {
+    .sidenav {
+      padding-top: 15px;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    .login-form {
+
+      margin-top: 10%;
+      justify-content: center;
+
+
+
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-left: 40%;
+    }
+
+    .sidenav {
+      width: 40%;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+    }
+
+    .login-form {
+      margin-top: 80%;
+    }
+
+  }
+
+  button {
+    margin: 20px;
+
+  }
+
+
+  .btn-red {
+    color: white;
+    background-color: #FF2F5D;
+  }
+}

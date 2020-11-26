@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <form id="formExemplo" data-toggle="validator" role="form" class="justify-content-center">
+    <h1> Atualizar Dono </h1>
+
+    <div class="form-group">
+      <label for="textNome" class="control-label">Nome</label>
+      <input id="textNome" class="form-control" [(ngModel)]="owners.name" name="name" placeholder="{{ownersInfo.name}}"
+        required type="text">
+    </div>
+    <div class="form-group">
+      <label for="textNome" class="control-label">Email </label>
+      <input id="textNome" class="form-control" [(ngModel)]="owners.email" name="email" type="text" required
+        placeholder={{ownersInfo.email}}>
+    </div>
+    <div class="form-group">
+
+      <label for="textNome" class="control-label">Data de nascimento </label>
+      <input id="textNome" class="form-control" mask="00/00/0000" [(ngModel)]="owners.birthday" name="birthday"
+        placeholder={{ownersInfo.birthday}} type="text" required>
+    </div>
+
+    <div class="form-group">
+
+      <label for="textNome" class="control-label">Telefone </label>
+      <input id="textNome" class="form-control" mask="(00) 00000-0000" value="{{ownersInfo.phone}}"
+        [(ngModel)]="owners.phone" name="phone" placeholder={{ownersInfo.phone}} type="text" required>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary" (click)='updateOneOwner(ownersInfo.id)'> Registrar </button>
+    </div>
+  </form>
+</div>

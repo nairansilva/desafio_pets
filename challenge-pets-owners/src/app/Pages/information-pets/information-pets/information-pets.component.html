@@ -1,0 +1,56 @@
+<app-navbar></app-navbar>
+<br>
+<div class="container">
+  <button type="button" class="btn btn-primary" (click)="redictToCreate()">Adicionar Pet</button>
+
+<br>
+<br>
+
+  <table class="table table-striped">
+
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Apelido</th>
+        <th scope="col">Espécie</th>
+        <th scope="col">Raça</th>
+        <th scope="col">Ações</th>
+
+
+
+      </tr>
+    </thead>
+
+
+    <tbody>
+
+      <tr *ngFor="let pets of petsInformation">
+        <th scope="row">{{pets.id}}</th>
+        <td>{{pets.name}}</td>
+        <td>{{pets.nickName}}</td>
+        <td>{{pets.species}}</td>
+        <td>{{pets.breed}}</td>
+
+        <td> <a class="btn btn-outline-info" (click)="getOnePet(pets.id)">Informações </a>
+
+          <a class="btn btn-outline-warning" (click)="updatePet(pets.id)">Atualizar</a>
+          <a class="btn btn-outline-danger" (click)="deleteOnePet(pets.id)">Deletar</a>
+
+        </td>
+
+
+      </tr>
+
+
+
+    </tbody>
+
+  </table>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,49 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <form id="formExemplo" data-toggle="validator" role="form" class="justify-content-center">
+    <h1> Atualizar dados do Pet </h1>
+
+    <div class="form-group">
+      <label for="textNome" class="control-label">Nome</label>
+      <input id="textNome" class="form-control" [(ngModel)]="pets.name" name="name" placeholder="{{petsInfo.name}}"
+        required type="text">
+    </div>
+    <div class="form-group">
+      <label for="textNome" class="control-label">Apelido do pet </label>
+      <input id="textNome" class="form-control" [(ngModel)]="pets.nickName" name="nickname"
+        placeholder="{{petsInfo.nickName}}">
+    </div>
+    <div class="form-group">
+      <label for="sel1">Raça do Pet</label>
+      <select [(ngModel)]="pets.breed" name="breed" class="form-control" id="sel1">
+        <option value={{petsInfo.breed}} selected>{{petsInfo.breed}}</option>
+        <option>Yorshire</option>
+        <option>Shitzu</option>
+        <option>SRD</option>
+        <option>Golden</option>
+      </select>
+
+    </div>
+
+    <div class="form-group">
+
+      <div class="form-group">
+        <label for="sel1">Espécie</label>
+        <select [(ngModel)]="pets.species" name="species" class="form-control" id="sel1">
+          <option>Gato</option>
+          <option>Cachorro</option>
+
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="textNome" class="control-label">Telefone do dono </label>
+        <input id="textNome" class="form-control" [(ngModel)]="pets.telefoneDono" name="nickname"
+          placeholder="{{petsInfo.telefoneDono}}">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" (click)='updatePet(petsInfo.id)'>Criar</button>
+      </div>
+    </div>
+  </form>
+</div>

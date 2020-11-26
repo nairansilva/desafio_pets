@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+<form id="formExemplo" data-toggle="validator" role="form" class="justify-content-center">
+  <h1> Cadastrar Pet </h1>
+
+  <div class="form-group">
+    <label for="textNome" class="control-label">Nome  </label>
+    <input id="textNome" class="form-control" [(ngModel)]="pets.name" name="name" placeholder="Digite seu Nome..."
+      type="text" required>
+  </div>
+  <div class="form-group">
+    <label for="textNome" class="control-label">Apelido  </label>
+    <input id="textNome" class="form-control" [(ngModel)]="pets.nickName" name="nickname"
+      placeholder="Digite o apelido..." type="text" required>
+  </div>
+  <div class="form-group">
+    <label for="sel1">Raça do Pet</label>
+    <select [(ngModel)]="pets.breed" name="breed" class="form-control" id="sel1">
+      <option>Yorshire</option>
+      <option>Shitzu</option>
+      <option>SRD</option>
+      <option>Golden</option>
+    </select>
+
+  </div>
+  <div class="form-group">
+    <label for="sel1">Espécie</label>
+    <select [(ngModel)]="pets.species" name="species" class="form-control" id="sel1">
+
+      <option>Gato</option>
+      <option>Cachorro</option>
+
+    </select>
+
+  </div>
+
+  <div class="form-group">
+    <label for="textNome" [(ngModel)]="pets.ownerId" name="owner" class="control-label">Nome do Dono: </label>
+    <select [(ngModel)]="pets.ownerId" name="owner" class="form-control" id="sel1">
+
+      <option *ngFor="let owner of owners" [value]="owner.id">
+
+        {{owner.name}}
+
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary" (click)='createOnePet()'> Registrar </button>
+  </div>
+</form>
+</div>

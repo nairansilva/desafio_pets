@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <form id="formExemplo" data-toggle="validator" role="form" class="justify-content-center">
+    <h1> Cadastrar Dono </h1>
+
+    <div class="form-group">
+      <label for="textNome" class="control-label">Nome</label>
+      <input id="textNome" class="form-control" [(ngModel)]="owners.name" name="name" placeholder="Digite seu nome..."
+       required type="text">
+    </div>
+    <div class="form-group">
+      <label for="textNome" class="control-label">Email </label>
+      <input id="textNome" class="form-control"  [(ngModel)]="owners.email" name="email" placeholder="Email"
+      placeholder="Digite seu email" type="text" required>
+    </div>
+    <div class="form-group">
+
+      <label for="textNome" class="control-label">Data de nascimento </label>
+      <input id="textNome" class="form-control"  mask="00/00/0000" [(ngModel)]="owners.birthday" name="birthday"
+      placeholder="Digite sua data de nascimento..." type="text" required>
+    </div>
+
+    <div class="form-group">
+
+      <label for="textNome" class="control-label">Telefone </label>
+      <input id="textNome" class="form-control"   mask="(00) 00000-0000" [(ngModel)]="owners.phone" name="phone" placeholder="Digite seu telefone..." type="text" required>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary" (click)='createOneOwner()'> Registrar </button>
+    </div>
+  </form>
+  </div>
